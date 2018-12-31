@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="9.5.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="2.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ItemViewModels\" />
+  </ItemGroup>
+</Project>

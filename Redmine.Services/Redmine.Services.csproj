@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\modules\redmineapi\netcore10\src\redmine-netcore10-api\RedmineApi.Core.csproj" />
+  </ItemGroup>
+</Project>

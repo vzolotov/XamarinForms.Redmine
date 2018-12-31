@@ -11,6 +11,10 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="ReactiveUI" Version="9.5.1" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="9.5.1" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.5.1" />
+    <PackageReference Include="SimpleInjector" Version="4.4.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -29,5 +33,9 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.ViewModels\Redmine.ViewModels.csproj" />
+    <ProjectReference Include="..\modules\essentials.mac\Xamarin.Essentials\Xamarin.Essentials.csproj" />
   </ItemGroup>
 </Project>
