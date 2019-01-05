@@ -5,6 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\modules\redmineapi\netcore10\src\redmine-netcore10-api\RedmineApi.Core.csproj" />
+    <PackageReference Include="redmine-netcore10-api" Version="1.0.0" />
   </ItemGroup>
 </Project>

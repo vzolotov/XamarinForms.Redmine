@@ -21,35 +21,6 @@ namespace Redmine.MacOs
                 Title = "Xamarin.Forms on Mac!",
                 TitleVisibility = NSWindowTitleVisibility.Hidden
             };
-
-           
-
-        //    NSMenuItem appMenuItem = new NSMenuItem();
-        //    menubar.AddItem(appMenuItem);
-
-        //    NSMenuItem appMenuItem1 = new NSMenuItem();
-        //    menubar.AddItem(appMenuItem1);
-
-        //    NSMenu appMenu = new NSMenu();
-        //    string quitTitle = String.Format("Quit {0}", "-----" );
-        //    NSMenuItem quitMenuItem = new NSMenuItem(quitTitle, "q", delegate {
-        //        NSApplication.SharedApplication.Terminate(menubar);
-        //    });
-        //    appMenu.AddItem(quitMenuItem);
-        //    appMenuItem.Submenu = appMenu;
-
-        //    NSMenu appMenu1 = new NSMenu("222");
-        //    string quitTitle1 = String.Format("Quit {0}", "-----");
-        //    NSMenuItem quitMenuItem1 = new NSMenuItem(quitTitle1, "q", delegate {
-        //        NSApplication.SharedApplication.Terminate(menubar);
-        //    });
-        //    appMenu1.AddItem(quitMenuItem1);
-        //    appMenuItem1.Submenu = appMenu1;
-        //    NSMenuItem u = new NSMenuItem();
-           
-        //    //menubar.AddItem(appMenuItem);
-
-        //    NSApplication.SharedApplication.MainMenu = menubar;
         }
 
         public override NSWindow MainWindow
@@ -60,6 +31,10 @@ namespace Redmine.MacOs
         public override void DidFinishLaunching(NSNotification notification)
         {
             Forms.Init();
+
+            var resolver = new MacOsResolver();
+            resolver.PlatformContainerInit();
+
             LoadApplication(new App());
             base.DidFinishLaunching(notification);
         }

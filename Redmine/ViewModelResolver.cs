@@ -8,5 +8,10 @@ namespace Redmine
         public ViewModelResolver()
         {
         }
+
+        public virtual void PlatformContainerInit()
+        {
+
+        }
     }
 }

@@ -36,6 +36,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Redmine.ViewModels\Redmine.ViewModels.csproj" />
-    <ProjectReference Include="..\modules\essentials.mac\Xamarin.Essentials\Xamarin.Essentials.csproj" />
   </ItemGroup>
 </Project>

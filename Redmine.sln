@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redmine.MacOs", "Redmine.Ma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{CCDF2A5B-62F9-4371-88C6-D058DBB92903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedmineApi.Core", "modules\redmineapi\netcore10\src\redmine-netcore10-api\RedmineApi.Core.csproj", "{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redmine.ViewModels", "Redmine.ViewModels\Redmine.ViewModels.csproj", "{7756A49E-2193-49A2-ABD1-30E2D69FD37A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redmine.Services", "Redmine.Services\Redmine.Services.csproj", "{00CFB4BD-14EB-4A35-8EBE-50E060EA45E4}"
@@ -157,30 +155,6 @@ Global
 		{35BCDEB3-FF3E-4688-A415-D0FA5823AA5D}.DebugJson|Any CPU.Build.0 = Debug|Any CPU
 		{35BCDEB3-FF3E-4688-A415-D0FA5823AA5D}.Samples|Any CPU.ActiveCfg = Debug|Any CPU
 		{35BCDEB3-FF3E-4688-A415-D0FA5823AA5D}.Samples|Any CPU.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Release|iPhone.Build.0 = Release|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugXML|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugXML|Any CPU.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugJSON|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugJSON|Any CPU.Build.0 = Debug|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugJson|Any CPU.ActiveCfg = DebugJson|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.DebugJson|Any CPU.Build.0 = DebugJson|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Samples|Any CPU.ActiveCfg = DebugJson|Any CPU
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E}.Samples|Any CPU.Build.0 = DebugJson|Any CPU
 		{7756A49E-2193-49A2-ABD1-30E2D69FD37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7756A49E-2193-49A2-ABD1-30E2D69FD37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7756A49E-2193-49A2-ABD1-30E2D69FD37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -255,7 +229,6 @@ Global
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7}.Samples|Any CPU.Build.0 = Samples|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C8ED4A44-35D8-4838-954F-E7EA13A3D62E} = {CCDF2A5B-62F9-4371-88C6-D058DBB92903}
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7} = {CCDF2A5B-62F9-4371-88C6-D058DBB92903}
 	EndGlobalSection
 EndGlobal

@@ -24,6 +24,8 @@ namespace Redmine.iOS
         {
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.Init();
+            var resolver = new IOsResolver();
+            resolver.PlatformContainerInit();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
