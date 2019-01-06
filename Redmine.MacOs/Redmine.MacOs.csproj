@@ -22,7 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <EnableCodeSigning>true</EnableCodeSigning>
-    <CodeSigningKey>Mac Developer: Viacheslava Zolotov (8TNG536H3K)</CodeSigningKey>
+    <CodeSigningKey>3rd Party Mac Developer Application: Viacheslava Zolotov (BPKE5SX4QQ)</CodeSigningKey>
     <CreatePackage>true</CreatePackage>
     <EnablePackageSigning>true</EnablePackageSigning>
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
@@ -96,7 +96,6 @@
     <Reference Include="ReactiveUI">
       <HintPath>..\packages\ReactiveUI.9.5.1\lib\xamarinmac20\ReactiveUI.dll</HintPath>
     </Reference>
-    <Reference Include="netstandard" />
     <Reference Include="ReactiveUI.XamForms">
       <HintPath>..\packages\ReactiveUI.XamForms.9.5.1\lib\netstandard2.0\ReactiveUI.XamForms.dll</HintPath>
     </Reference>
