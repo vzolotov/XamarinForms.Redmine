@@ -7,4 +7,7 @@
   <ItemGroup>
     <PackageReference Include="redmine-netcore10-api" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj" />
+  </ItemGroup>
 </Project>

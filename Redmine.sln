@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redmine.Services", "Redmine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Essentials", "modules\essentials.mac\Xamarin.Essentials\Xamarin.Essentials.csproj", "{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redmine.Models", "Redmine.Models\Redmine.Models.csproj", "{25977592-827B-46FC-A38D-BDA3B5A79712}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,30 @@ Global
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7}.DebugJson|Any CPU.Build.0 = Debug|Any CPU
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7}.Samples|Any CPU.ActiveCfg = Samples|Any CPU
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7}.Samples|Any CPU.Build.0 = Samples|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Release|iPhone.Build.0 = Release|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugXML|Any CPU.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugXML|Any CPU.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugJSON|Any CPU.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugJSON|Any CPU.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugJson|Any CPU.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.DebugJson|Any CPU.Build.0 = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Samples|Any CPU.ActiveCfg = Debug|Any CPU
+		{25977592-827B-46FC-A38D-BDA3B5A79712}.Samples|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E09DEBFB-7D25-4C83-AE0B-1A026B1F82A7} = {CCDF2A5B-62F9-4371-88C6-D058DBB92903}

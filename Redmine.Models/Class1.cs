@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Redmine.Services
+namespace Redmine.Models
 {
     public class Class1
     {

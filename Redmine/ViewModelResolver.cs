@@ -1,10 +1,11 @@
 ﻿using System;
-using SimpleInjector;
+using DryIoc;
+
 namespace Redmine
 {
     public class ViewModelResolver
     {
-        private static Container Container { get; } = new Container();
+        protected static Container Container { get; } = new Container();
         public ViewModelResolver()
         {
         }

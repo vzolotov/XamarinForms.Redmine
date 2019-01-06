@@ -13,9 +13,6 @@ namespace Redmine
             InitializeComponent();
 
             MainPage = new MainPage();
-            var menu = new Menu();
-            menu.Text = "1111";
-            SetMenu(Application.Current, menu);
         }
 
         protected override void OnStart()
