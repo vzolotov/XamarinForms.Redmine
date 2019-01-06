@@ -2,7 +2,3 @@
 [submodule "modules/redmineapi"]
 	path = modules/redmineapi
 	url = https://github.com/zapadi/redmine-netcore-api.git
-[submodule "modules/essentials.mac"]
-	path = modules/essentials.mac
-	url = https://github.com/vzolotov/Essentials.git
-	branch=macos
