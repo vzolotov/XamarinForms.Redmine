@@ -4,7 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Redmine.Views.Tasks"
              xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
-             BindingContext="{x:Static redmine:ViewModelResolver.IssuesPageViewModel}">
+             BindingContext="{x:Static redmine:ViewModelResolver.IssuesPageViewModel}"
+             Title="Tasks">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Hello, tasks!"

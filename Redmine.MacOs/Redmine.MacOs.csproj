@@ -138,11 +138,16 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MacOsResolver.cs" />
+    <Compile Include="SpotlightSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Redmine\Redmine.csproj">
       <Project>{6C10BA9F-B90D-4EFB-86EC-4558F4461A19}</Project>
       <Name>Redmine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj">
+      <Project>{25977592-827B-46FC-A38D-BDA3B5A79712}</Project>
+      <Name>Redmine.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

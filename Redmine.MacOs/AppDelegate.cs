@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using AppKit;
+using CoreSpotlight;
 using Foundation;
+using Redmine.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
@@ -11,6 +13,10 @@ namespace Redmine.MacOs
     public class AppDelegate : FormsApplicationDelegate
     {
         NSWindow _window;
+        const string activityName = "com.xamarin.monkeys.monkey";
+        public SpotlightSearch SpotlightSearch { get; private set; }
+        List<TodoItem> todoItems;
+
         public AppDelegate()
         {
             var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
@@ -20,6 +26,16 @@ namespace Redmine.MacOs
             {
                 Title = "Xamarin.Forms on Mac!",
                 TitleVisibility = NSWindowTitleVisibility.Hidden
+            };
+            todoItems = new List<TodoItem>
+            {
+                new TodoItem
+                {
+                    Name = "qwertyuiop",
+                    Done = true,
+                    Notes = "222",
+                    ID = "333"
+                }
             };
         }
 
@@ -36,7 +52,22 @@ namespace Redmine.MacOs
             resolver.PlatformContainerInit();
 
             LoadApplication(new App());
+            SpotlightSearch = new SpotlightSearch(todoItems);
+
             base.DidFinishLaunching(notification);
+        }
+
+        [Export("application:continueUserActivity:restorationHandler:")]
+        public override bool ContinueUserActivity(NSApplication application, NSUserActivity userActivity, ContinueUserActivityRestorationHandler restorationHandler)
+        {
+            if (userActivity.ActivityType == CSSearchableItem.ActionType)
+            {
+                string id = userActivity.UserInfo.ObjectForKey(CSSearchableItem.ActivityIdentifier).ToString();
+                if (!string.IsNullOrEmpty(id))
+                {
+                }
+            }
+            return true;
         }
     }
 }
