@@ -5,38 +5,42 @@ using ReactiveUI;
 using Redmine.ViewModels;
 using Xamarin.Forms;
 using System.Linq;
+using Redmine.Views;
 
 namespace Redmine.Services
 {
     public class NavigationService : INavigationService
     {
-        private readonly IDictionary<Type, Type> navigationDictionary = new Dictionary<Type, Type>()
-        {
+        private readonly IDictionary<Type, Type> navigationDictionary = new Dictionary<Type, Type>();
 
-        };
-
-        private NavigationPage RootPage { get; set; } = Application.Current.MainPage.FindByName<NavigationPage>("navigationPage");
+        private NavigationPage _rootPage;
         private Page _currentPage;
         private object _currentPageData;
 
         public NavigationService()
         {
+            navigationDictionary.Add(typeof(IssuesPageViewModel), typeof(Tasks));
         }
 
-        private bool IsGoBack => RootPage.Navigation.NavigationStack.Any();
+        public bool IsGoBack { get; private set; }
 
-        public virtual async Task NavigateToAsync<T>(object data) where T: ViewModelBase
+        public virtual async Task NavigateToAsync<T>(object data) where T : ViewModelBase
         {
+            if (_rootPage == null)
+            {
+                _rootPage = Application.Current.MainPage.FindByName<NavigationPage>("navigationPage");
+                IsGoBack = _rootPage.Navigation.NavigationStack.Any();
+            }
             if (IsGoBack)
             {
-                var page = await RootPage.PopAsync();
+                var page = await _rootPage.PopAsync();
             }
             var pageType = navigationDictionary[typeof(T)];
             _currentPage = (Page)Activator.CreateInstance(pageType);
             _currentPage.Appearing += Page_AppearingAsync;
             _currentPage.Disappearing += Page_Disappearing;
             _currentPageData = data;
-            RootPage = new NavigationPage(_currentPage);
+            _rootPage = new NavigationPage(_currentPage);
         }
 
         void Page_Disappearing(object sender, EventArgs e)

@@ -10,15 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="ReactiveUI" Version="9.5.1" />
-    <PackageReference Include="ReactiveUI.XamForms" Version="9.5.1" />
-    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.5.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
+    <PackageReference Include="ReactiveUI" Version="9.7.2" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="9.7.2" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.7.2" />
     <PackageReference Include="DryIoc" Version="3.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\DefaultPage.xaml">

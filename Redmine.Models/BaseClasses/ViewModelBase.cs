@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using ReactiveUI;
 
 namespace Redmine.ViewModels
 {
-    public class ViewModelBase
+    public class ViewModelBase : ReactiveObject
     {
         public ViewModelBase()
         {

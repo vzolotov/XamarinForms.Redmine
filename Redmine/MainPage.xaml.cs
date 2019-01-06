@@ -5,6 +5,7 @@
         public MainPage()
         {
             InitializeComponent();
+            this.MasterBehavior = Xamarin.Forms.MasterBehavior.Split;
         }
     }
 }
