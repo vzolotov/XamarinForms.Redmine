@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Redmine.ViewModels
 {
-    public class SettingsPageViewModel
+    public class SettingsPageViewModel : ViewModelBase
     {
         public SettingsPageViewModel()
         {

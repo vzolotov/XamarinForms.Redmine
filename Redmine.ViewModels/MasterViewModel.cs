@@ -22,7 +22,14 @@ namespace Redmine.ViewModels
             _navigationservice = navigationService;
 
             var _navigateToTaskCommand = ReactiveCommand.CreateFromTask(NavigateToTaskAsync);
-            MenuCollection.Add(new MainMenuItemViewModel { Name = "11111", Command = _navigateToTaskCommand });
+            var _navigateToSettingsCommand = ReactiveCommand.CreateFromTask(NavigateToSettingsAsync);
+            MenuCollection.Add(new MainMenuItemViewModel { Name = "Tasks", Command = _navigateToTaskCommand });
+            MenuCollection.Add(new MainMenuItemViewModel { Name = "Settings", Command = _navigateToSettingsCommand });
+        }
+
+        private Task NavigateToSettingsAsync()
+        {
+            return _navigationservice.NavigateToAsync<SettingsPageViewModel>(null);
         }
 
         Task NavigateToTaskAsync()

@@ -13,18 +13,7 @@
                  >
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="viewmodel:MainMenuItemViewModel">
-                    <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Name}" />
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Command}"></TapGestureRecognizer>
-                            </Grid.GestureRecognizers>
-                        </Grid>
-                    </ViewCell>
+                    <TextCell Text="{Binding Name}" Command="{Binding Command}"/>
                 </DataTemplate>
            </ListView.ItemTemplate>
        </ListView>

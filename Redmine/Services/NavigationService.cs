@@ -20,6 +20,7 @@ namespace Redmine.Services
         public NavigationService()
         {
             navigationDictionary.Add(typeof(IssuesPageViewModel), typeof(Tasks));
+            navigationDictionary.Add(typeof(SettingsPageViewModel), typeof(SettingsPage));
         }
 
         public bool IsGoBack { get; private set; }
@@ -40,7 +41,7 @@ namespace Redmine.Services
             _currentPage.Appearing += Page_AppearingAsync;
             _currentPage.Disappearing += Page_Disappearing;
             _currentPageData = data;
-            _rootPage = new NavigationPage(_currentPage);
+            await _rootPage.PushAsync(_currentPage, true);
         }
 
         void Page_Disappearing(object sender, EventArgs e)

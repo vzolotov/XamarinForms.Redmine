@@ -14,6 +14,8 @@ namespace Redmine
         }
 
         public static MasterViewModel MasterViewModel => Container.Resolve<MasterViewModel>();
+        public static IssuesPageViewModel IssuesPageViewModel => Container.Resolve<IssuesPageViewModel>();
+        public static SettingsPageViewModel SettingsPageViewModel => Container.Resolve<SettingsPageViewModel>();
 
         public virtual void PlatformContainerInit()
         {
@@ -21,6 +23,8 @@ namespace Redmine
             Container.Register<INavigationService, NavigationService>(Reuse.Singleton);
             ///ViewModels
             Container.Register<MasterViewModel>();
+            Container.Register<IssuesPageViewModel>();
+            Container.Register<SettingsPageViewModel>();
         }
     }
 }

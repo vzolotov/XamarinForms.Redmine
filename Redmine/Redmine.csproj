@@ -39,4 +39,7 @@
     <ProjectReference Include="..\Redmine.ViewModels\Redmine.ViewModels.csproj" />
     <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\SettingsPage.cs" />
+  </ItemGroup>
 </Project>

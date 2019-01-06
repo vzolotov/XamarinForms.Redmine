@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
+    x:Class="Redmine.Views.SettingsPage"
+    BindingContext="{x:Static redmine:ViewModelResolver.SettingsPageViewModel}">
+    <ContentPage.Content>
+        <Label Text="Hello, settings"/>
+    </ContentPage.Content>
+</ContentPage>
