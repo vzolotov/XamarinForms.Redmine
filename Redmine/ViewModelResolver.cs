@@ -2,6 +2,7 @@
 using DryIoc;
 using Redmine.ViewModels;
 using Redmine.Services;
+using Redmine.Services.NetworkServices;
 
 namespace Redmine
 {
@@ -21,6 +22,8 @@ namespace Redmine
         {
             ///Services
             Container.Register<INavigationService, NavigationService>(Reuse.Singleton);
+            Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
+            Container.Register<IRedmineService, RedmineService>(Reuse.Singleton);
             ///ViewModels
             Container.Register<MasterViewModel>();
             Container.Register<IssuesPageViewModel>();

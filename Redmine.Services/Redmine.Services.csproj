@@ -10,4 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NetworkServices\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
 </Project>

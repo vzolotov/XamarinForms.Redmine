@@ -72,7 +72,6 @@ namespace Redmine.MacOs
                 var attributes = new CSSearchableItemAttributeSet(UTType.Text);
                 attributes.Title = item.Name;
                 attributes.ContentDescription = item.Notes;
-
                 // Create item 
                 var searchableItem = new CSSearchableItem(item.ID, "com.ru.Redmine.MacOs", attributes);
                 searchableItems.Add(searchableItem);
