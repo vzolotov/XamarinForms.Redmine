@@ -19,14 +19,21 @@ namespace Redmine.ViewModels
         {
             _settingsService = settingsService;
             _userService = userService;
-            SaveCommand = ReactiveCommand.Create(SaveSettings);
+            SaveCommand = ReactiveCommand.CreateFromTask(SaveSettingsAsync);
         }
 
-        private void SaveSettings()
+        private async Task SaveSettingsAsync()
         {
-            _settingsService.Host = Host;
-            _settingsService.ApiKey = ApiKey;
-            var a = _userService.GetCurrentUserAsync().GetAwaiter().GetResult();
+            try
+            {
+                _settingsService.Host = Host;
+                _settingsService.ApiKey = ApiKey;
+                var a = await _userService.GetCurrentUserAsync();
+            }
+            catch
+            {
+
+            }
         }
 
         [Reactive] public string Host { get; set; }

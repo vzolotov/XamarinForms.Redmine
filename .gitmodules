@@ -1,4 +1,0 @@
-
-[submodule "modules/redmineapi"]
-	path = modules/redmineapi
-	url = https://github.com/zapadi/redmine-netcore-api.git
