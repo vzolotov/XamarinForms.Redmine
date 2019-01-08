@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Redmine.Net.Api.Types;
+using Redmine.Models.Types;
 
 namespace Redmine.Services
 {

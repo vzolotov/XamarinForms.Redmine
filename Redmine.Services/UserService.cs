@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using Redmine.Net.Api.Async;
 using Redmine.Net.Api.Types;
 using Redmine.Services.NetworkServices;
@@ -16,10 +17,11 @@ namespace Redmine.Services
         }
         
         
-        public async Task<User> GetCurrentUserAsync()
+        public async Task<Redmine.Models.Types.User> GetCurrentUserAsync()
         {
+            Mapper.Initialize(cfg => cfg.CreateMap<User, Redmine.Models.Types.User>());
             var redmineUser = await _redmineService.GetRedmineManager().GetCurrentUserAsync();
-            return redmineUser;
+            return Mapper.Map<Redmine.Models.Types.User>(redmineUser);
         }
     }
 }
