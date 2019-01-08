@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
-using PropertyChanged;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace Redmine.ViewModels.ItemViewModels
 {
-    [AddINotifyPropertyChangedInterface]
-    public class MainMenuItemViewModel
+    public class MainMenuItemViewModel : ReactiveObject
     {
-        public string Name { get; set; }
-        public ICommand Command { get; set; }
+        [Reactive] public string Name { get; set; }
+        [Reactive] public ICommand Command { get; set; }
 
         public override bool Equals(object obj)
         {

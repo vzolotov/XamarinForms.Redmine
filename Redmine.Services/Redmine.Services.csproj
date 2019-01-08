@@ -1,17 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="redmine-netcore10-api" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NetworkServices\" />
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="redmine-net-api" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NetworkServices\RedmineServices.cs" />
   </ItemGroup>
 </Project>

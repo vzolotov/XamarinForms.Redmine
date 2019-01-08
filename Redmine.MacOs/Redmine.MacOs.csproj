@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props" Condition="Exists('..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props')" />
   <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -60,9 +61,6 @@
     <Reference Include="DynamicData">
       <HintPath>..\packages\DynamicData.6.7.1.2534\lib\netstandard2.0\DynamicData.dll</HintPath>
     </Reference>
-    <Reference Include="Splat">
-      <HintPath>..\packages\Splat.5.2.1\lib\xamarinmac20\Splat.dll</HintPath>
-    </Reference>
     <Reference Include="System.Reactive">
       <HintPath>..\packages\System.Reactive.4.1.2\lib\netstandard2.0\System.Reactive.dll</HintPath>
     </Reference>
@@ -84,7 +82,6 @@
     <Reference Include="ReactiveUI">
       <HintPath>..\packages\ReactiveUI.9.7.2\lib\xamarinmac20\ReactiveUI.dll</HintPath>
     </Reference>
-    <Reference Include="netstandard" />
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -107,10 +104,16 @@
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.Mac20\Plugin.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RedmineApi.Core">
-      <HintPath>..\packages\redmine-netcore10-api.1.0.0\lib\netstandard2.0\RedmineApi.Core.dll</HintPath>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.5.3.3\lib\xamarinmac20\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Fody.Helpers">
+      <HintPath>..\packages\ReactiveUI.Fody.9.7.2\lib\xamarinmac20\ReactiveUI.Fody.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="redmine-net-api">
+      <HintPath>..\packages\redmine-net-api.1.0.1\lib\netstandard2.0\redmine-net-api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +149,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -162,15 +166,11 @@
       <Project>{25977592-827B-46FC-A38D-BDA3B5A79712}</Project>
       <Name>Redmine.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Redmine.MacOs.ShareExtension\Redmine.MacOs.ShareExtension.csproj">
-      <IsAppExtension>true</IsAppExtension>
-      <Project>{8CD727D7-DA60-481C-9001-CB08F7923362}</Project>
-      <Name>MacOs share extension</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainMenu.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Fody.3.3.5\build\Fody.targets" Condition="Exists('..\packages\Fody.3.3.5\build\Fody.targets')" />
 </Project>

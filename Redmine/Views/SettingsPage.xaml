@@ -3,10 +3,20 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
+    xmlns:controls="clr-namespace:Redmine.Views.Controls;assembly=Redmine"
+    xmlns:desktop="clr-namespace:Redmine.Views.Controls.Desktop;assembly=Redmine"
+    xmlns:mobile="clr-namespace:Redmine.Views.Controls.Mobile;assembly=Redmine"
     x:Class="Redmine.Views.SettingsPage"
     BindingContext="{x:Static redmine:ViewModelResolver.SettingsPageViewModel}"
     Title="Settings">
     <ContentPage.Content>
-        <Label Text="Hello, settings"/>
+        <controls:ControlsPresenter>
+            <controls:ControlsPresenter.DesktopControl>
+                <desktop:SettingsDesktopView/>
+            </controls:ControlsPresenter.DesktopControl>
+            <controls:ControlsPresenter.MobileControl>
+                <mobile:SettingsMobileView/>
+            </controls:ControlsPresenter.MobileControl>
+        </controls:ControlsPresenter>
     </ContentPage.Content>
 </ContentPage>

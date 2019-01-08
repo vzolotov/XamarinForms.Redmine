@@ -1,5 +1,4 @@
 ﻿using System;
-using PropertyChanged;
 using System.Collections.ObjectModel;
 using Redmine.ViewModels.ItemViewModels;
 using Redmine.Services;
@@ -9,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Redmine.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
     public class MasterViewModel : ViewModelBase
     {
         private INavigationService _navigationservice;
