@@ -34,6 +34,7 @@
     <XamMacArch></XamMacArch>
     <PackageSigningKey>3rd Party Mac Developer Installer: Viacheslava Zolotov (BPKE5SX4QQ)</PackageSigningKey>
     <AOTMode>None</AOTMode>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,6 +53,7 @@
     <HttpClientHandler></HttpClientHandler>
     <XamMacArch></XamMacArch>
     <AOTMode>None</AOTMode>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
