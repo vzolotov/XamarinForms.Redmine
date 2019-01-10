@@ -40,8 +40,8 @@ namespace Redmine.ViewModels
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(_settingsService.Host)
-                    || string.IsNullOrWhiteSpace(_settingsService.ApiKey))
+                if (string.IsNullOrWhiteSpace(Host)
+                    || string.IsNullOrWhiteSpace(ApiKey))
                     return;
 
                 _settingsService.Host = Host;
