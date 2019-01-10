@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Redmine.Models.Types;
 using Redmine.Services;
 using Redmine.Services.NetworkServices;
 
@@ -7,18 +8,19 @@ namespace Redmine.ViewModels
 {
     public class IssuesPageViewModel : ViewModelBase
     {
-        private readonly IRedmineService _redmineService;
+        private readonly IIssueService _issueService;
+        private PaginatedObjects<Issue> _issues;
 
-        public IssuesPageViewModel(
-            IRedmineService redmineService,
-            ISettingsService settingsService)
+        private int _limit = 25;
+        private int _offset = 0;
+        public IssuesPageViewModel(IIssueService issueService)
         {
-            _redmineService = redmineService;
+            _issueService = issueService;
         }
 
-        public override Task NavigateTo(object data)
+        public override async Task NavigateToAsync(object data)
         {
-            return base.NavigateTo(data);
+            _issues = await _issueService.GetIssuesAsync(123);
         }
     }
 }

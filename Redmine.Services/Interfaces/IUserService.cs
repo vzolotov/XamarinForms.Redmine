@@ -6,5 +6,6 @@ namespace Redmine.Services
     public interface IUserService
     {
         Task<User> GetCurrentUserAsync();
+        User CurrentUser { get;}
     }
 }

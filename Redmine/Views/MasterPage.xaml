@@ -13,7 +13,11 @@
                  >
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="viewmodel:MainMenuItemViewModel">
-                    <TextCell Text="{Binding Name}" Command="{Binding Command}"/>
+                    <TextCell 
+                        Text="{Binding Name}" 
+                        Command="{Binding Command}"
+                        TextColor="Blue"
+                    />
                 </DataTemplate>
            </ListView.ItemTemplate>
        </ListView>

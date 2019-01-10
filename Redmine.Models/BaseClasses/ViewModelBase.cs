@@ -10,7 +10,7 @@ namespace Redmine.ViewModels
         {
         }
 
-        public virtual Task NavigateTo(object data) 
+        public virtual Task NavigateToAsync(object data) 
         {
             return Task.CompletedTask;
         }

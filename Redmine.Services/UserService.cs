@@ -15,13 +15,14 @@ namespace Redmine.Services
         {
             _redmineService = redmineService;
         }
-        
-        
+
+        public Redmine.Models.Types.User CurrentUser { get; private set; }
         public async Task<Redmine.Models.Types.User> GetCurrentUserAsync()
         {
             Mapper.Initialize(cfg => cfg.CreateMap<User, Redmine.Models.Types.User>());
             var redmineUser = await _redmineService.GetRedmineManager().GetCurrentUserAsync();
-            return Mapper.Map<Redmine.Models.Types.User>(redmineUser);
+            CurrentUser = Mapper.Map<Redmine.Models.Types.User>(redmineUser);
+            return CurrentUser;
         }
     }
 }

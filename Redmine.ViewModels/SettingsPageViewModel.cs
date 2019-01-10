@@ -5,6 +5,7 @@ using System.Windows.Input;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Redmine.Services;
+using System.Reactive.Linq;
 
 namespace Redmine.ViewModels
 {
@@ -19,16 +20,32 @@ namespace Redmine.ViewModels
         {
             _settingsService = settingsService;
             _userService = userService;
-            SaveCommand = ReactiveCommand.CreateFromTask(SaveSettingsAsync);
+            var canSave =
+                this.WhenAnyValue(x => x.Host, x => x.ApiKey)
+                .Select((arg) =>
+                !string.IsNullOrWhiteSpace(arg.Item1) || string.IsNullOrWhiteSpace(arg.Item2));
+
+            SaveCommand = ReactiveCommand.Create(SaveSettings, canExecute: canSave);
         }
 
-        private async Task SaveSettingsAsync()
+        public override Task NavigateToAsync(object data)
+        {
+            Host = _settingsService.Host;
+            ApiKey = _settingsService.ApiKey;
+
+            return base.NavigateToAsync(data);
+        }
+
+        private void SaveSettings()
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(_settingsService.Host)
+                    || string.IsNullOrWhiteSpace(_settingsService.ApiKey))
+                    return;
+
                 _settingsService.Host = Host;
                 _settingsService.ApiKey = ApiKey;
-                var a = await _userService.GetCurrentUserAsync();
             }
             catch
             {

@@ -56,7 +56,7 @@ namespace Redmine.Services
         {
             _currentPage.Appearing -= Page_AppearingAsync;
             ViewModelBase viewModel = GetCurrentContext();
-            await viewModel?.NavigateTo(_currentPageData);
+            await viewModel?.NavigateToAsync(_currentPageData);
             _currentPageData = null;
         }
 
