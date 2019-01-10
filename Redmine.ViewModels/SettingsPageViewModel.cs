@@ -23,7 +23,7 @@ namespace Redmine.ViewModels
             var canSave =
                 this.WhenAnyValue(x => x.Host, x => x.ApiKey)
                 .Select((arg) =>
-                !string.IsNullOrWhiteSpace(arg.Item1) || string.IsNullOrWhiteSpace(arg.Item2));
+                !string.IsNullOrWhiteSpace(arg.Item1) && !string.IsNullOrWhiteSpace(arg.Item2));
 
             SaveCommand = ReactiveCommand.Create(SaveSettings, canExecute: canSave);
         }

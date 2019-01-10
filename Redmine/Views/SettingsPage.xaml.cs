@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Redmine.Views
 {
-    public partial class SettingsPage : ContentPage
+    public partial class SettingsPage
     {
         public SettingsPage()
         {

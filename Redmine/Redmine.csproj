@@ -30,10 +30,6 @@
     <Folder Include="Views\Controls\Desktop\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\DefaultPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator></Generator>
-    </Page>
     <Page Include="Views\MasterPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>

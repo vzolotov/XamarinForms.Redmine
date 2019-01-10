@@ -32,6 +32,9 @@ namespace Redmine.Services
                 _rootPage = Application.Current.MainPage.FindByName<NavigationPage>("navigationPage");
                 IsGoBack = _rootPage.Navigation.NavigationStack.Any();
             }
+
+            var p = Application.Current.MainPage as MasterDetailPage;
+
             if (IsGoBack)
             {
                 var page = await _rootPage.PopAsync();
@@ -52,11 +55,11 @@ namespace Redmine.Services
         }
 
 
-        async void Page_AppearingAsync(object sender, EventArgs e)
+        void Page_AppearingAsync(object sender, EventArgs e)
         {
             _currentPage.Appearing -= Page_AppearingAsync;
             ViewModelBase viewModel = GetCurrentContext();
-            await viewModel?.NavigateToAsync(_currentPageData);
+            viewModel?.NavigateToAsync(_currentPageData);
             _currentPageData = null;
         }
 

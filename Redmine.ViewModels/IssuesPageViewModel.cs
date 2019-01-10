@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using ReactiveUI;
 using Redmine.Models.Types;
 using Redmine.Services;
 using Redmine.Services.NetworkServices;
@@ -20,7 +21,9 @@ namespace Redmine.ViewModels
 
         public override async Task NavigateToAsync(object data)
         {
-            _issues = await _issueService.GetIssuesAsync(123);
+            IsBusy = true;
+            _issues = await _issueService.GetIssuesAsync(500);
+            IsBusy = false;
         }
     }
 }

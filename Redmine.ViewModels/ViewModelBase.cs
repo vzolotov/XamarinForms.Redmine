@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace Redmine.ViewModels
 {
@@ -9,6 +10,8 @@ namespace Redmine.ViewModels
         public ViewModelBase()
         {
         }
+
+        [Reactive] public bool IsBusy { get; set; }
 
         public virtual Task NavigateToAsync(object data) 
         {

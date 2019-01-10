@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
+                  xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                  android:TabbedPage.ToolbarPlacement="Bottom"
+                  android:TabbedPage.BarItemColor="Black"
+                  android:TabbedPage.BarSelectedItemColor="Red"
                   x:Class="Redmine.MainPage">
-    <MasterDetailPage.Master>
-        <views:MasterPage x:Name="masterPage" />
-    </MasterDetailPage.Master>
-    <MasterDetailPage.Detail>
-        <NavigationPage x:Name="navigationPage">
-            <x:Arguments>
-                <views:DefaultPage></views:DefaultPage>
-            </x:Arguments>
-        </NavigationPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+    <views:DefaultPage></views:DefaultPage>
+    <views:Tasks></views:Tasks>   
+    <views:SettingsPage></views:SettingsPage>
+</TabbedPage>
