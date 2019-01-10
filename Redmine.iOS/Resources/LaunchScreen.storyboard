@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="Icon-60.png" translatesAutoresizingMaskIntoConstraints="NO" id="23" ambiguous="YES">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="Icon-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="23">
                                 <rect key="frame" x="141" y="302" width="194" height="179"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
@@ -34,4 +34,7 @@
             <point key="canvasLocation" x="349" y="339"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-256.png" width="256" height="256"/>
+    </resources>
 </document>

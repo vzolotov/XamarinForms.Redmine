@@ -34,6 +34,7 @@
     <RunWithWarnings>true</RunWithWarnings>
     <NoWarn></NoWarn>
     <LangVersion>Latest</LangVersion>
+    <CodesignProvision>test</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
