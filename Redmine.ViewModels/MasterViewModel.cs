@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Redmine.ViewModels.ItemViewModels;
-using Redmine.Services;
 using ReactiveUI;
-using System.Reactive;
 using System.Threading.Tasks;
 
 namespace Redmine.ViewModels

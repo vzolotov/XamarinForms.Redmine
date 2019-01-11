@@ -1,3 +1,4 @@
+using System;
 using Xamarin.Forms.Xaml;
 
 namespace Redmine.Views

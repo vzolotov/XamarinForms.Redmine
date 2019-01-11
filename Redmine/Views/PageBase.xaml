@@ -7,12 +7,12 @@
    <AbsoluteLayout 
        VerticalOptions="FillAndExpand"
        HorizontalOptions="FillAndExpand">
-        <ContentPresenter 
+        <ContentView
+            x:Name="presenter"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
-            Content="{Binding Path=CustomControl, Source={x:Reference Page}}"
             >
-        </ContentPresenter>
+        </ContentView>
         <ActivityIndicator 
             IsRunning="{Binding Path=IsBusy, Source={x:Reference Page}}"
             IsVisible="{Binding Path=IsBusy, Source={x:Reference Page}}"
