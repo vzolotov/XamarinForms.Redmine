@@ -23,9 +23,10 @@ namespace Redmine
             ///Services
             Container.Register<INavigationService, NavigationService>(Reuse.Singleton);
             Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
-            Container.Register<IRedmineService, RedmineService>(Reuse.Transient);
+            Container.Register<IRedmineService, RedmineService>(Reuse.Singleton);
             Container.Register<IUserService, UserService>(Reuse.Singleton);
             Container.Register<IIssueService, IssueService>(Reuse.Singleton);
+            Container.Register<IMessageBoxService, MessageBoxService>(Reuse.Transient);
 
             ///ViewModels
             Container.Register<MasterViewModel>();

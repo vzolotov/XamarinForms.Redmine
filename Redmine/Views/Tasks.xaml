@@ -13,11 +13,26 @@
        <ListView 
             ItemsSource="{Binding Issues}"
             VerticalOptions="FillAndExpand"
-            HorizontalOptions="FillAndExpand">
+            HorizontalOptions="FillAndExpand"
+            HasUnevenRows="True">
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:IssueViewModel">
                    <ViewCell>
-                       <Label Text="{Binding Subject}"></Label>
+                       <Grid>
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                           </Grid.RowDefinitions>
+                           <Label 
+                               Text="{Binding Subject}" 
+                               FontSize="Large">
+                           </Label>
+                           <Label 
+                               Text="{Binding Autor.Name}"
+                               FontSize="Default"
+                               Grid.Row="1">
+                           </Label>
+                       </Grid>
                    </ViewCell>
                </DataTemplate>
            </ListView.ItemTemplate>

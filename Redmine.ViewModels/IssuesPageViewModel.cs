@@ -9,12 +9,15 @@ namespace Redmine.ViewModels
     public class IssuesPageViewModel : ViewModelBase
     {
         private readonly IIssueService _issueService;
-
+        private readonly IMessageBoxService messageBoxService;
         private int _limit = 25;
         private int _offset = 0;
-        public IssuesPageViewModel(IIssueService issueService)
+        public IssuesPageViewModel(
+            IIssueService issueService,
+            IMessageBoxService messageBoxService)
         {
             _issueService = issueService;
+            this.messageBoxService = messageBoxService;
         }
 
         public ObservableCollection<IssueViewModel> Issues { get; set; } = new ObservableCollection<IssueViewModel>();

@@ -10,7 +10,13 @@ namespace Redmine.ViewModels.ItemViewModels
         public IssueViewModel(Issue issue)
         {
             Subject = issue.Subject;
+            Notes = issue.Notes;
+            Autor = issue.Author;
         }
+
+        [Reactive] public IdentifiableName Autor { get; set; }
+
+        [Reactive] public string Notes { get; set; }
 
         [Reactive] public string Subject { get; set; }
     }

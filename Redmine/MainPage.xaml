@@ -8,6 +8,6 @@
                   android:TabbedPage.BarSelectedItemColor="Red"
                   x:Class="Redmine.MainPage">
     <views:DefaultPage></views:DefaultPage>
-    <views:Tasks></views:Tasks>   
-    <views:SettingsPage></views:SettingsPage>
+    <views:Tasks Icon="todo.png"></views:Tasks>   
+    <views:SettingsPage Icon="settings.png"></views:SettingsPage>
 </TabbedPage>
