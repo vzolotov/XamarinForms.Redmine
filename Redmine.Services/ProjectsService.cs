@@ -22,7 +22,7 @@ namespace Redmine.Services
             _userService = userService;
         }
 
-        public async Task<IEnumerable<Project>> GetProjectsAsync()
+        public async Task<PaginatedObjects<Project>> GetProjectsAsync()
         {
             var user = _userService.CurrentUser ?? await _userService.GetCurrentUserAsync();
             var parameters = new NameValueCollection();
@@ -32,8 +32,8 @@ namespace Redmine.Services
                 .GetRedmineManager()
                 .GetPaginatedObjects<WebRedmine.Project>(parameters);
             var config = new MapperConfiguration(cfg =>
-                cfg.CreateMap<List<WebRedmine.Project>, List<Project>>());
-            return config.CreateMapper().Map<List<Project>>(result);
+                 cfg.CreateMap<WebRedmine.PaginatedObjects<WebRedmine.Project>, PaginatedObjects<Project>>());
+            return config.CreateMapper().Map<PaginatedObjects<Project>>(result);
         }
     }
 }

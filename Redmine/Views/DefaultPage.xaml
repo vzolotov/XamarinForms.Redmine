@@ -9,12 +9,42 @@
              ios:Page.UseSafeArea="true"
              Title="Projects"
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
+             IsBusy="{Binding IsBusy}"
             >
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <views:PageBase.VisualElementControl>
+        <ListView 
+            ItemsSource="{Binding Projects}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            HasUnevenRows="True"
+            CachingStrategy="RecycleElementAndDataTemplate">
+           <ListView.ItemTemplate>
+               <DataTemplate>
+                   <ViewCell>
+                       <ViewCell.ContextActions>
+                           <MenuItem CommandParameter="{Binding .}"
+                                     Text="Edit" />
+                           <MenuItem CommandParameter="{Binding .}"
+                                     Text="Delete" IsDestructive="True" />
+                       </ViewCell.ContextActions>
+                       <Grid>
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                           </Grid.RowDefinitions>
+                           <Label 
+                               Text="{Binding Name}" 
+                               FontSize="Large">
+                           </Label>
+                           <Label 
+                               Text="{Binding Description}"
+                               FontSize="Default"
+                               Grid.Row="1">
+                           </Label>
+                       </Grid>
+                   </ViewCell>
+               </DataTemplate>
+           </ListView.ItemTemplate>
+       </ListView>
+    </views:PageBase.VisualElementControl>
 </views:PageBase>

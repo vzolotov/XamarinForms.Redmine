@@ -6,6 +6,6 @@ namespace Redmine.Services
 {
     public interface IProjectsService
     {
-        Task<IEnumerable<Project>> GetProjectsAsync();
+        Task<PaginatedObjects<Project>> GetProjectsAsync();
     }
 }

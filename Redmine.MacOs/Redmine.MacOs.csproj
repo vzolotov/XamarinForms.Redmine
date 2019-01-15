@@ -114,12 +114,12 @@
     <Reference Include="ReactiveUI.Fody.Helpers">
       <HintPath>..\packages\ReactiveUI.Fody.9.7.2\lib\xamarinmac20\ReactiveUI.Fody.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="redmine-net-api">
-      <HintPath>..\packages\redmine-net-api.1.0.1\lib\netstandard2.0\redmine-net-api.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.8.0.0\lib\netstandard2.0\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="redmine-net-api">
+      <HintPath>..\packages\redmine-net-api.1.0.0\lib\netstandard2.0\redmine-net-api.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
