@@ -212,5 +212,6 @@
     <BundleResource Include="Resources\Icon-256.png" />
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\todo.png" />
+    <BundleResource Include="Resources\work.png" />
   </ItemGroup>
 </Project>

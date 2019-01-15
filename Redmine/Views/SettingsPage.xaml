@@ -7,6 +7,8 @@
     xmlns:desktop="clr-namespace:Redmine.Views.Controls.Desktop;assembly=Redmine"
     xmlns:mobile="clr-namespace:Redmine.Views.Controls.Mobile;assembly=Redmine"
     xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    ios:Page.UseSafeArea="true"
     x:Class="Redmine.Views.SettingsPage"
     BindingContext="{x:Static redmine:ViewModelResolver.SettingsPageViewModel}"
     Title="Settings">

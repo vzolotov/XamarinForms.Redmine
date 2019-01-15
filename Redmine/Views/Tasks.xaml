@@ -7,6 +7,8 @@
              xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
              xmlns:itemVm="clr-namespace:Redmine.ViewModels.ItemViewModels;assembly=Redmine.ViewModels"
              BindingContext="{x:Static redmine:ViewModelResolver.IssuesPageViewModel}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
              Title="Tasks"
              IsBusy="{Binding IsBusy}">
     <views:PageBase.VisualElementControl>
@@ -14,10 +16,20 @@
             ItemsSource="{Binding Issues}"
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
-            HasUnevenRows="True">
+            HasUnevenRows="True"
+            CachingStrategy="RecycleElementAndDataTemplate"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshCommand="{Binding RefreshCommand}">
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:IssueViewModel">
                    <ViewCell>
+                       <ViewCell.ContextActions>
+                           <MenuItem CommandParameter="{Binding .}"
+                                     Text="Edit" />
+                           <MenuItem CommandParameter="{Binding .}"
+                                     Text="Delete" IsDestructive="True" />
+                       </ViewCell.ContextActions>
                        <Grid>
                            <Grid.RowDefinitions>
                                <RowDefinition Height="Auto"></RowDefinition>

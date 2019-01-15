@@ -95,6 +95,7 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\drawable\settings.png" />
     <AndroidResource Include="Resources\drawable\todo.png" />
+    <AndroidResource Include="Resources\drawable\work.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

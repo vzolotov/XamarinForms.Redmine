@@ -6,8 +6,10 @@
                   android:TabbedPage.ToolbarPlacement="Bottom"
                   android:TabbedPage.BarItemColor="Black"
                   android:TabbedPage.BarSelectedItemColor="Red"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                  ios:Page.UseSafeArea="true"
                   x:Class="Redmine.MainPage">
-    <views:DefaultPage></views:DefaultPage>
+    <views:DefaultPage Icon="work.png"></views:DefaultPage>
     <views:Tasks Icon="todo.png"></views:Tasks>   
     <views:SettingsPage Icon="settings.png"></views:SettingsPage>
 </TabbedPage>
