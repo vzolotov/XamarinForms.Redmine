@@ -6,6 +6,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Redmine.Models.Types;
 using Redmine.Services;
+using Redmine.Services.Interfaces;
 using Redmine.ViewModels.ItemViewModels;
 
 namespace Redmine.ViewModels

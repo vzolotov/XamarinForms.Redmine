@@ -2,7 +2,9 @@
 using DryIoc;
 using Redmine.ViewModels;
 using Redmine.Services;
+using Redmine.Services.Interfaces;
 using Redmine.Services.NetworkServices;
+using Redmine.ViewModels.Interfaces;
 
 namespace Redmine
 {

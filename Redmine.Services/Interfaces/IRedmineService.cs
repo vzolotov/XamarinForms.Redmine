@@ -1,6 +1,6 @@
 ﻿using Redmine.Net.Api;
 
-namespace Redmine.Services.NetworkServices
+namespace Redmine.Services.Interfaces
 {
     public interface IRedmineService
     {

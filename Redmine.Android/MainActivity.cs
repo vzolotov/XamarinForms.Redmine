@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Redmine.Droid.Resources;
 
 namespace Redmine.Droid
 {

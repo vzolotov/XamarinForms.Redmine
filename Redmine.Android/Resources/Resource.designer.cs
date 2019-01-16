@@ -11,7 +11,7 @@
 
 [assembly: global::Android.Runtime.ResourceDesignerAttribute("Redmine.Droid.Resource", IsApplication=true)]
 
-namespace Redmine.Droid
+namespace Redmine.Droid.Resources
 {
 	
 	
@@ -26,7 +26,7 @@ namespace Redmine.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Redmine.Droid.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Redmine.Droid.Resources.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Threading.Tasks;
 using AutoMapper;
 using Redmine.Models.Types;
+using Redmine.Services.Interfaces;
 using Redmine.Services.NetworkServices;
 using WebRedmine = Redmine.Net.Api.Types;
 namespace Redmine.Services

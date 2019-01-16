@@ -5,6 +5,8 @@ using System.Globalization;
 using System.Threading.Tasks;
 using AutoMapper;
 using Redmine.Models.Types;
+using Redmine.Net.Api.Async;
+using Redmine.Services.Interfaces;
 using Redmine.Services.NetworkServices;
 
 using WebRedmine = Redmine.Net.Api.Types;
@@ -25,15 +27,31 @@ namespace Redmine.Services
         public async Task<PaginatedObjects<Project>> GetProjectsAsync()
         {
             var user = _userService.CurrentUser ?? await _userService.GetCurrentUserAsync();
-            var parameters = new NameValueCollection();
-            parameters.Add(Net.Api.RedmineKeys.LIMIT, 25.ToString(CultureInfo.InvariantCulture));
-            parameters.Add(Net.Api.RedmineKeys.OFFSET, 0.ToString(CultureInfo.InvariantCulture));
-            var result = _redmineService
+            var parameters = new NameValueCollection
+            {
+                {Net.Api.RedmineKeys.LIMIT, 25.ToString(CultureInfo.InvariantCulture)},
+                {Net.Api.RedmineKeys.OFFSET, 0.ToString(CultureInfo.InvariantCulture)}
+            };
+            var result = await _redmineService
                 .GetRedmineManager()
-                .GetPaginatedObjects<WebRedmine.Project>(parameters);
+                .GetPaginatedObjectsAsync<WebRedmine.Project>(parameters);
             var config = new MapperConfiguration(cfg =>
                  cfg.CreateMap<WebRedmine.PaginatedObjects<WebRedmine.Project>, PaginatedObjects<Project>>());
             return config.CreateMapper().Map<PaginatedObjects<Project>>(result);
+        }
+
+        public Task DeleteProject(string id)
+        {
+            return _redmineService.GetRedmineManager().DeleteObjectAsync<WebRedmine.Project>(id, null);
+        }
+
+        public Task EditProject(Project project)
+        {
+            var config = new MapperConfiguration(cfg =>
+                cfg.CreateMap<Project, WebRedmine.Project>());
+            var webProject = config.CreateMapper().Map<WebRedmine.Project>(project);
+            return _redmineService.GetRedmineManager()
+                .UpdateObjectAsync<WebRedmine.Project>(webProject.Identifier, webProject);
         }
     }
 }

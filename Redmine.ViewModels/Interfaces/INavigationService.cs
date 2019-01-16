@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Redmine.ViewModels
+namespace Redmine.ViewModels.Interfaces
 {
     public interface INavigationService
     {

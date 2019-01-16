@@ -2,6 +2,7 @@
 using Redmine.ViewModels.ItemViewModels;
 using ReactiveUI;
 using System.Threading.Tasks;
+using Redmine.ViewModels.Interfaces;
 
 namespace Redmine.ViewModels
 {

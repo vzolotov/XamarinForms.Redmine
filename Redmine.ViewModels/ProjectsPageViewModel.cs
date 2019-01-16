@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Redmine.Services;
+using Redmine.Services.Interfaces;
 using Redmine.ViewModels.ItemViewModels;
 
 namespace Redmine.ViewModels
@@ -26,7 +27,7 @@ namespace Redmine.ViewModels
             _offset += projects.Objects.Count;
             foreach (var item in projects.Objects)
             {
-                Projects.Add(new ProjectViewModel(item));
+                Projects.Add(new ProjectViewModel(item, _projectsService));
             }
             IsBusy = false;
         }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Redmine.Models.Types;
 
-namespace Redmine.Services
+namespace Redmine.Services.Interfaces
 {
     public interface IIssueService
     {

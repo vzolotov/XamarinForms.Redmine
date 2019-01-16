@@ -1,5 +1,4 @@
-﻿using System;
-namespace Redmine.Services
+﻿namespace Redmine.Services.Interfaces
 {
     public interface ISettingsService
     {

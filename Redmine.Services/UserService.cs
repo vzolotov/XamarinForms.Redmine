@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Redmine.Net.Api.Async;
 using Redmine.Net.Api.Types;
+using Redmine.Services.Interfaces;
 using Redmine.Services.NetworkServices;
 
 namespace Redmine.Services

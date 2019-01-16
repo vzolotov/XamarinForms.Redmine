@@ -25,9 +25,9 @@
                <DataTemplate x:DataType="itemVm:IssueViewModel">
                    <ViewCell>
                        <ViewCell.ContextActions>
-                           <MenuItem CommandParameter="{Binding .}"
+                           <MenuItem Command="{Binding EditCommand}"
                                      Text="Edit" />
-                           <MenuItem CommandParameter="{Binding .}"
+                           <MenuItem Command="{Binding DeleteCommand}"
                                      Text="Delete" IsDestructive="True" />
                        </ViewCell.ContextActions>
                        <Grid>

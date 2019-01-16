@@ -5,6 +5,7 @@ using ReactiveUI;
 using Redmine.ViewModels;
 using Xamarin.Forms;
 using System.Linq;
+using Redmine.ViewModels.Interfaces;
 using Redmine.Views;
 
 namespace Redmine.Services

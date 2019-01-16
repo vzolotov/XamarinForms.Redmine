@@ -1,6 +1,7 @@
 ﻿using System;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.Services
 {

@@ -4,6 +4,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Redmine.Services;
 using System.Reactive.Linq;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.ViewModels
 {

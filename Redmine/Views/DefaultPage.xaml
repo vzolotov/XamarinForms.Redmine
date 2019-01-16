@@ -6,6 +6,7 @@
              xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
              xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:itemVm="clr-namespace:Redmine.ViewModels.ItemViewModels;assembly=Redmine.ViewModels"
              ios:Page.UseSafeArea="true"
              Title="Projects"
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
@@ -19,12 +20,12 @@
             HasUnevenRows="True"
             CachingStrategy="RecycleElementAndDataTemplate">
            <ListView.ItemTemplate>
-               <DataTemplate>
+               <DataTemplate x:DataType="itemVm:ProjectViewModel">
                    <ViewCell>
                        <ViewCell.ContextActions>
-                           <MenuItem CommandParameter="{Binding .}"
+                           <MenuItem Command="{Binding EditCommand}"
                                      Text="Edit" />
-                           <MenuItem CommandParameter="{Binding .}"
+                           <MenuItem Command="{Binding DeleteCommand}"
                                      Text="Delete" IsDestructive="True" />
                        </ViewCell.ContextActions>
                        <Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using Redmine.Net.Api;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.Services.NetworkServices
 {
