@@ -24,15 +24,13 @@ namespace Redmine.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            #if DEBUG
             Xamarin.Calabash.Start();
-            #endif
+
             
             global::Xamarin.Forms.Forms.Init();
             var resolver = new IOsResolver();
             resolver.PlatformContainerInit();
-            var formsApp = ViewModelResolver.Container.Resolve<IMainView>() as App;
-            LoadApplication(formsApp);
+            LoadApplication(resolver.GetApp());
 
             return base.FinishedLaunching(app, options);
         }

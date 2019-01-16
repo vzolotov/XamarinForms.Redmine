@@ -16,7 +16,6 @@
   <ItemGroup>
     <PackageReference Include="ReactiveUI" Version="9.7.2" />
     <PackageReference Include="ReactiveUI.Fody" Version="9.7.2" />
-    <PackageReference Include="redmine-net-api" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ItemViewModels\" />

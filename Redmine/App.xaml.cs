@@ -10,12 +10,9 @@ namespace Redmine
 {
     public partial class App : Application, IMainView
     {
-        public App(ISettingsService settings)
+        public App()
         {
             InitializeComponent();
-            MainPage = string.IsNullOrWhiteSpace(settings.Host) || string.IsNullOrWhiteSpace(settings.ApiKey)
-                ? (Page)new LoginPage()
-                : new MainPage();
         }
 
         protected override void OnStart()

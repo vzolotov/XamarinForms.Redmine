@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DryIoc;
 using Redmine.ViewModels;
 using Redmine.Services;
 using Redmine.Services.Interfaces;
 using Redmine.Services.NetworkServices;
 using Redmine.ViewModels.Interfaces;
+using Redmine.Views;
+using Xamarin.Forms;
 
 namespace Redmine
 {
@@ -38,6 +41,17 @@ namespace Redmine
             Container.Register<IssuesPageViewModel>();
             Container.Register<SettingsPageViewModel>();
             Container.Register<ProjectsPageViewModel>();
+        }
+
+        public App GetApp()
+        {
+            var settings = Container.Resolve<ISettingsService>();
+            var page = string.IsNullOrWhiteSpace(settings.Host) || string.IsNullOrWhiteSpace(settings.ApiKey)
+                ? (Page)new LoginPage()
+                : new MainPage();
+            var app = Container.Resolve<IMainView>() as App;
+            app.MainPage = page;
+            return app;
         }
     }
 }

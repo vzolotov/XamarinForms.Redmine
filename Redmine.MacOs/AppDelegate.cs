@@ -48,11 +48,10 @@ namespace Redmine.MacOs
             Forms.Init();
             var resolver = new MacOsResolver();
             resolver.PlatformContainerInit();
-            var formsApp = ViewModelResolver.Container.Resolve<IMainView>() as App;
 
-            LoadApplication(formsApp);
+            LoadApplication(resolver.GetApp());
+
             SpotlightSearch = new SpotlightSearch(todoItems);
-
             base.DidFinishLaunching(notification);
         }
 

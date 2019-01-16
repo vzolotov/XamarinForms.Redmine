@@ -19,9 +19,8 @@ namespace Redmine.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             var resolver = new AndroidResolver();
             resolver.PlatformContainerInit();
-            var app = ViewModelResolver.Container.Resolve<IMainView>();
 
-            LoadApplication(app as App);
+            LoadApplication(resolver.GetApp());
         }
     }
 }
