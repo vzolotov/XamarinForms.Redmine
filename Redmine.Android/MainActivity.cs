@@ -2,7 +2,8 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Redmine.Droid.Resources;
+using DryIoc;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.Droid
 {
@@ -15,12 +16,11 @@ namespace Redmine.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-
             var resolver = new AndroidResolver();
             resolver.PlatformContainerInit();
-
+            var app = ViewModelResolver.Container.Resolve<IMainView>() as App;
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            LoadApplication(app);
         }
     }
 }

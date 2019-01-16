@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props" Condition="Exists('..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props')" />
   <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props')" />
@@ -31,7 +31,8 @@
     <UseRefCounting>true</UseRefCounting>
     <HttpClientHandler>NSUrlSessionHandler</HttpClientHandler>
     <LinkMode>None</LinkMode>
-    <XamMacArch></XamMacArch>
+    <XamMacArch>
+    </XamMacArch>
     <PackageSigningKey>3rd Party Mac Developer Installer: Viacheslava Zolotov (BPKE5SX4QQ)</PackageSigningKey>
     <AOTMode>None</AOTMode>
     <LangVersion>Latest</LangVersion>
@@ -40,7 +41,8 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <EnableCodeSigning>false</EnableCodeSigning>
@@ -50,8 +52,10 @@
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <LinkMode>SdkOnly</LinkMode>
-    <HttpClientHandler></HttpClientHandler>
-    <XamMacArch></XamMacArch>
+    <HttpClientHandler>
+    </HttpClientHandler>
+    <XamMacArch>
+    </XamMacArch>
     <AOTMode>None</AOTMode>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>
@@ -164,6 +168,10 @@
     <Compile Include="SpotlightSearch.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj">
+      <Project>{00cfb4bd-14eb-4a35-8ebe-50e060ea45e4}</Project>
+      <Name>Redmine.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Redmine\Redmine.csproj">
       <Project>{6C10BA9F-B90D-4EFB-86EC-4558F4461A19}</Project>
       <Name>Redmine</Name>
@@ -180,6 +188,7 @@
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\todo.png" />
     <BundleResource Include="Resources\work.png" />
+    <BundleResource Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets')" />

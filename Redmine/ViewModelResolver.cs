@@ -10,7 +10,7 @@ namespace Redmine
 {
     public class ViewModelResolver
     {
-        protected static Container Container { get; } = new Container();
+        public static Container Container { get; } = new Container();
         public ViewModelResolver()
         {
            
@@ -24,6 +24,7 @@ namespace Redmine
         public virtual void PlatformContainerInit()
         {
             ///Services
+            Container.Register<IMainView, App>(Reuse.Singleton);
             Container.Register<INavigationService, NavigationService>(Reuse.Singleton);
             Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
             Container.Register<IRedmineService, RedmineService>(Reuse.Singleton);

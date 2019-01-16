@@ -96,6 +96,7 @@
     <AndroidResource Include="Resources\drawable\settings.png" />
     <AndroidResource Include="Resources\drawable\todo.png" />
     <AndroidResource Include="Resources\drawable\work.png" />
+    <AndroidResource Include="Resources\drawable\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -113,6 +114,10 @@
     <ProjectReference Include="..\Redmine\Redmine.csproj">
       <Project>{6C10BA9F-B90D-4EFB-86EC-4558F4461A19}</Project>
       <Name>Redmine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj">
+      <Project>{00CFB4BD-14EB-4A35-8EBE-50E060EA45E4}</Project>
+      <Name>Redmine.Services</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

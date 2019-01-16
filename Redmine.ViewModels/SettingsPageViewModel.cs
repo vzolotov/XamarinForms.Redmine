@@ -12,13 +12,16 @@ namespace Redmine.ViewModels
     {
         private readonly ISettingsService _settingsService;
         private readonly IUserService _userService;
+        private readonly IMainView _mainViewService;
 
         public SettingsPageViewModel(
             ISettingsService settingsService,
-            IUserService userService)
+            IUserService userService,
+            IMainView mainViewService)
         {
             _settingsService = settingsService;
             _userService = userService;
+            _mainViewService = mainViewService;
             var canSave =
                 this.WhenAnyValue(x => x.Host, x => x.ApiKey)
                 .Select((arg) =>
@@ -45,6 +48,7 @@ namespace Redmine.ViewModels
 
                 _settingsService.Host = Host;
                 _settingsService.ApiKey = ApiKey;
+                _mainViewService.GoToLogic();
             }
             catch
             {

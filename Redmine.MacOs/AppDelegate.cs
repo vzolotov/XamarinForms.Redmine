@@ -39,19 +39,16 @@ namespace Redmine.MacOs
             };
         }
 
-        public override NSWindow MainWindow
-        {
-            get { return _window; }
-        }
+        public override NSWindow MainWindow => _window;
 
         public override void DidFinishLaunching(NSNotification notification)
         {
             Forms.Init();
-
-            var resolver = new MacOsResolver();
+            var app = new App();
+            var resolver = new MacOsResolver(app);
             resolver.PlatformContainerInit();
 
-            LoadApplication(new App());
+            LoadApplication(app);
             SpotlightSearch = new SpotlightSearch(todoItems);
 
             base.DidFinishLaunching(notification);

@@ -12,6 +12,9 @@
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
              IsBusy="{Binding IsBusy}"
             >
+    <views:PageBase.ToolbarItems>
+        <ToolbarItem Text="Add new" Icon="add.pmg"></ToolbarItem>
+    </views:PageBase.ToolbarItems>
     <views:PageBase.VisualElementControl>
         <ListView 
             ItemsSource="{Binding Projects}"

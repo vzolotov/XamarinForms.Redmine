@@ -4,6 +4,8 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using DryIoc;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.iOS
 {
@@ -22,11 +24,15 @@ namespace Redmine.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            #if DEBUG
             Xamarin.Calabash.Start();
+            #endif
+            
             global::Xamarin.Forms.Forms.Init();
             var resolver = new IOsResolver();
             resolver.PlatformContainerInit();
-            LoadApplication(new App());
+            var formsApp = ViewModelResolver.Container.Resolve<IMainView>() as App;
+            LoadApplication(formsApp);
 
             return base.FinishedLaunching(app, options);
         }
