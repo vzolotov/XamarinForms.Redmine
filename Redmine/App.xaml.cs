@@ -10,12 +10,11 @@ namespace Redmine
 {
     public partial class App : Application, IMainView
     {
-        public App()
+        public App(ISettingsService settings)
         {
             InitializeComponent();
-            var settings = ViewModelResolver.Container.Resolve<ISettingsService>();
             MainPage = string.IsNullOrWhiteSpace(settings.Host) || string.IsNullOrWhiteSpace(settings.ApiKey)
-                ? (Page)new SettingsPage()
+                ? (Page)new LoginPage()
                 : new MainPage();
         }
 
@@ -36,12 +35,13 @@ namespace Redmine
 
         public void GoToLogin()
         {
-            MainPage = new SettingsPage();
+            MainPage = new LoginPage();
         }
 
         public void GoToLogic()
         {
-            MainPage = new MainPage();
+            if (MainPage is LoginPage)
+                MainPage = new MainPage();
         }
     }
 }

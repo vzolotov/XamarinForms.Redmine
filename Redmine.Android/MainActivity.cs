@@ -16,11 +16,12 @@ namespace Redmine.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             var resolver = new AndroidResolver();
             resolver.PlatformContainerInit();
-            var app = ViewModelResolver.Container.Resolve<IMainView>() as App;
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(app);
+            var app = ViewModelResolver.Container.Resolve<IMainView>();
+
+            LoadApplication(app as App);
         }
     }
 }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using AppKit;
 using CoreSpotlight;
+using DryIoc;
 using Foundation;
 using Redmine.Models;
+using Redmine.Services.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
@@ -44,11 +46,11 @@ namespace Redmine.MacOs
         public override void DidFinishLaunching(NSNotification notification)
         {
             Forms.Init();
-            var app = new App();
-            var resolver = new MacOsResolver(app);
+            var resolver = new MacOsResolver();
             resolver.PlatformContainerInit();
+            var formsApp = ViewModelResolver.Container.Resolve<IMainView>() as App;
 
-            LoadApplication(app);
+            LoadApplication(formsApp);
             SpotlightSearch = new SpotlightSearch(todoItems);
 
             base.DidFinishLaunching(notification);
