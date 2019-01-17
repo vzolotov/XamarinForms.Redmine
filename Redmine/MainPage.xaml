@@ -9,7 +9,11 @@
                   xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
                   ios:Page.UseSafeArea="true"
                   x:Class="Redmine.MainPage">
-    <views:DefaultPage Icon="work.png"></views:DefaultPage>
+    <NavigationPage Icon="work.png">
+        <x:Arguments>
+            <views:DefaultPage></views:DefaultPage>
+        </x:Arguments>
+    </NavigationPage>
     <views:Tasks Icon="todo.png"></views:Tasks>   
     <views:SettingsPage Icon="settings.png"></views:SettingsPage>
 </TabbedPage>

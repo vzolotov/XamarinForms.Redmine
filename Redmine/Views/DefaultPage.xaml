@@ -13,7 +13,7 @@
              IsBusy="{Binding IsBusy}"
             >
     <views:PageBase.ToolbarItems>
-        <ToolbarItem Text="Add" Icon="add.png" Order="Primary"></ToolbarItem>
+        <ToolbarItem Text="Add" Icon="add.png" Order="Primary" Priority="0"></ToolbarItem>
     </views:PageBase.ToolbarItems>
     <views:PageBase.VisualElementControl>
         <ListView 

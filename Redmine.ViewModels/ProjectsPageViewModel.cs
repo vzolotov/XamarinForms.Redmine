@@ -23,11 +23,18 @@ namespace Redmine.ViewModels
         public override async Task NavigateToAsync(object data)
         {
             IsBusy = true;
-            var projects = await _projectsService.GetProjectsAsync();
-            _offset += projects.Objects.Count;
-            foreach (var item in projects.Objects)
+            try
             {
-                Projects.Add(new ProjectViewModel(item, _projectsService));
+                var projects = await _projectsService.GetProjectsAsync();
+                _offset += projects.Objects.Count;
+                foreach (var item in projects.Objects)
+                {
+                    Projects.Add(new ProjectViewModel(item, _projectsService));
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
             IsBusy = false;
         }
