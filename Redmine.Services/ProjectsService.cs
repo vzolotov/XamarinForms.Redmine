@@ -36,7 +36,10 @@ namespace Redmine.Services
                 .GetRedmineManager()
                 .GetPaginatedObjectsAsync<WebRedmine.Project>(parameters);
             var config = new MapperConfiguration(cfg =>
-                 cfg.CreateMap<WebRedmine.PaginatedObjects<WebRedmine.Project>, PaginatedObjects<Project>>());
+            {
+                cfg.CreateMap<WebRedmine.Project, Project>().ForMember(x => x.CustomFields, y => y.Ignore());
+                cfg.CreateMap<WebRedmine.PaginatedObjects<WebRedmine.Project>, PaginatedObjects<Project>>();
+            });
             return config.CreateMapper().Map<PaginatedObjects<Project>>(result);
         }
 
