@@ -7,10 +7,16 @@
              xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
              xmlns:itemVm="clr-namespace:Redmine.ViewModels.ItemViewModels;assembly=Redmine.ViewModels"
              BindingContext="{x:Static redmine:ViewModelResolver.IssuesPageViewModel}"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:controls="clr-namespace:Redmine.Views.Controls;assembly=Redmine"
              ios:Page.UseSafeArea="true"
              Title="Tasks"
              IsBusy="{Binding IsBusy}">
+    
+    <views:PageBase.ToolbarItems>
+        <ToolbarItem Text="Add" Icon="add.png" Order="Primary" Priority="0"></ToolbarItem>
+    </views:PageBase.ToolbarItems>
+    
     <views:PageBase.VisualElementControl>
        <ListView 
             ItemsSource="{Binding Issues}"
@@ -35,7 +41,7 @@
                                <RowDefinition Height="Auto"></RowDefinition>
                                <RowDefinition Height="Auto"></RowDefinition>
                            </Grid.RowDefinitions>
-                           <Label 
+                           <Label
                                Text="{Binding Subject}" 
                                FontSize="Large">
                            </Label>
