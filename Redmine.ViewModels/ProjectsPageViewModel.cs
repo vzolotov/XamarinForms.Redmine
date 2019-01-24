@@ -27,8 +27,15 @@ namespace Redmine.ViewModels
 
         private async Task DeleteHandlerAsync(ProjectViewModel arg)
         {
-            await _projectsService.DeleteProject(arg.Identify);
-            Projects.Remove(arg);
+            try
+            {
+                await _projectsService.DeleteProject(arg.Identify);
+                Projects.Remove(arg);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public ICommand DeleteCommand { get; set; }

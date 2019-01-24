@@ -182,16 +182,16 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
     <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.7" />
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.Fody">
-      <Version>9.7.2</Version>
+      <Version>9.8.19</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI">
-      <Version>9.7.2</Version>
+      <Version>9.8.19</Version>
     </PackageReference>
     <PackageReference Include="AutoMapper">
       <Version>8.0.0</Version>

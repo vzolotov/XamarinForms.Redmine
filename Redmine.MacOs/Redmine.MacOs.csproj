@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props" Condition="Exists('..\packages\ReactiveUI.Fody.9.7.2\build\ReactiveUI.Fody.props')" />
-  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1029999\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1029999\build\Xamarin.Forms.props')" />
+  <Import Project="..\packages\ReactiveUI.Fody.9.8.19\build\ReactiveUI.Fody.props" Condition="Exists('..\packages\ReactiveUI.Fody.9.8.19\build\ReactiveUI.Fody.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -86,22 +86,22 @@
       <HintPath>..\packages\System.Reactive.Providers.4.1.2\lib\netstandard2.0\System.Reactive.Providers.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI">
-      <HintPath>..\packages\ReactiveUI.9.7.2\lib\xamarinmac20\ReactiveUI.dll</HintPath>
+      <HintPath>..\packages\ReactiveUI.9.8.19\lib\xamarinmac20\ReactiveUI.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1029999\lib\Xamarin.Mac\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1029999\lib\Xamarin.Mac\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform.macOS">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1029999\lib\Xamarin.Mac\Xamarin.Forms.Platform.macOS.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\packages\Xamarin.Forms.3.4.0.1029999\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.XamForms">
-      <HintPath>..\packages\ReactiveUI.XamForms.9.7.2\lib\netstandard2.0\ReactiveUI.XamForms.dll</HintPath>
+      <HintPath>..\packages\ReactiveUI.XamForms.9.8.19\lib\netstandard2.0\ReactiveUI.XamForms.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\Xamarin.Mac20\Plugin.Settings.Abstractions.dll</HintPath>
@@ -113,10 +113,10 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Splat">
-      <HintPath>..\packages\Splat.5.3.3\lib\xamarinmac20\Splat.dll</HintPath>
+      <HintPath>..\packages\Splat.6.1.7\lib\xamarinmac20\Splat.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Fody.Helpers">
-      <HintPath>..\packages\ReactiveUI.Fody.9.7.2\lib\xamarinmac20\ReactiveUI.Fody.Helpers.dll</HintPath>
+      <HintPath>..\packages\ReactiveUI.Fody.9.8.19\lib\xamarinmac20\ReactiveUI.Fody.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="AutoMapper">
@@ -125,6 +125,7 @@
     <Reference Include="redmine-net-api">
       <HintPath>..\packages\redmine-net-api.1.0.0\lib\netstandard2.0\redmine-net-api.dll</HintPath>
     </Reference>
+    <Reference Include="netstandard" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -192,6 +193,6 @@
     <BundleResource Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Fody.3.3.5\build\Fody.targets" Condition="Exists('..\packages\Fody.3.3.5\build\Fody.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1029999\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1029999\build\Xamarin.Forms.targets')" />
 </Project>
