@@ -10,7 +10,7 @@ using Redmine.Views;
 
 namespace Redmine.Services
 {
-    public class NavigationService : INavigationService
+    public class IssueNavigationService : IIssueNavigationService
     {
         private readonly IDictionary<Type, Type> navigationDictionary = new Dictionary<Type, Type>();
 
@@ -18,7 +18,7 @@ namespace Redmine.Services
         private Page _currentPage;
         private object _currentPageData;
 
-        public NavigationService()
+        public IssueNavigationService()
         {
             navigationDictionary.Add(typeof(IssuesPageViewModel), typeof(Tasks));
             navigationDictionary.Add(typeof(SettingsPageViewModel), typeof(SettingsPage));

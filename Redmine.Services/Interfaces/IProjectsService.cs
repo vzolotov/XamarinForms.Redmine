@@ -1,13 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Redmine.Models.Types;
 
-namespace Redmine.Services.Interfaces
+namespace Redmine.Services
 {
     public interface IProjectsService
     {
-        Task<PaginatedObjects<Project>> GetProjectsAsync();
+        Task AddProject(Project project);
         Task DeleteProject(string id);
-
         Task EditProject(Project project);
+        Task<PaginatedObjects<Project>> GetProjectsAsync();
     }
 }

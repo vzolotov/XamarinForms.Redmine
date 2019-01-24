@@ -6,4 +6,14 @@ namespace Redmine.ViewModels.Interfaces
     {
         Task NavigateToAsync<T>(object data) where T : ViewModelBase;
     }
+
+    public interface IProjectNavigationService : INavigationService
+    {
+
+    }
+
+    public interface IIssueNavigationService : INavigationService
+    {
+
+    }
 }

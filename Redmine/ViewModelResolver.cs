@@ -23,11 +23,12 @@ namespace Redmine
         public static IssuesPageViewModel IssuesPageViewModel => Container.Resolve<IssuesPageViewModel>();
         public static SettingsPageViewModel SettingsPageViewModel => Container.Resolve<SettingsPageViewModel>();
         public static ProjectsPageViewModel ProjectsPageViewModel => Container.Resolve<ProjectsPageViewModel>();
+        public static NewProjectViewModel NewProjectViewModel => Container.Resolve<NewProjectViewModel>();
 
         public virtual void PlatformContainerInit()
         {
             ///Services
-            Container.Register<INavigationService, NavigationService>(Reuse.Singleton);
+            Container.Register<IProjectNavigationService, ProjectNavigationService>();
             Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
             Container.Register<IMainView, App>(Reuse.Singleton);
             Container.Register<IRedmineService, RedmineService>(Reuse.Singleton);
@@ -41,6 +42,7 @@ namespace Redmine
             Container.Register<IssuesPageViewModel>();
             Container.Register<SettingsPageViewModel>();
             Container.Register<ProjectsPageViewModel>();
+            Container.Register<NewProjectViewModel>();
         }
 
         public App GetApp()

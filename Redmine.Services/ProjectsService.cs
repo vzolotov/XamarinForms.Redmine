@@ -56,5 +56,14 @@ namespace Redmine.Services
             return _redmineService.GetRedmineManager()
                 .UpdateObjectAsync<WebRedmine.Project>(webProject.Identifier, webProject);
         }
+
+        public Task AddProject(Project project)
+        {
+            var config = new MapperConfiguration(cfg =>
+                  cfg.CreateMap<Project, WebRedmine.Project>());
+            var webProject = config.CreateMapper().Map<WebRedmine.Project>(project);
+            return _redmineService.GetRedmineManager()
+                .CreateObjectAsync<WebRedmine.Project>(webProject);
+        }
     }
 }

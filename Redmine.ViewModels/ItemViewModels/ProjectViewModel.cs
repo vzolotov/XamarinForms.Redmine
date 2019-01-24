@@ -7,6 +7,7 @@ using ReactiveUI.Fody.Helpers;
 using Redmine.Models.Types;
 using Redmine.Services;
 using Redmine.Services.Interfaces;
+using Redmine.ViewModels.Interfaces;
 
 namespace Redmine.ViewModels.ItemViewModels
 {
@@ -14,7 +15,8 @@ namespace Redmine.ViewModels.ItemViewModels
     {
         private readonly IProjectsService _projectsService;
 
-        public ProjectViewModel(Project project, IProjectsService projectsService)
+        public ProjectViewModel(Project project,
+            IProjectsService projectsService)
         {
             _projectsService = projectsService;
             Name = project.Name;
@@ -25,6 +27,8 @@ namespace Redmine.ViewModels.ItemViewModels
             DeleteCommand = ReactiveCommand.CreateFromTask(DeleteHandler);
             EditCommand = ReactiveCommand.CreateFromTask(EditHandler);
         }
+
+        
 
         private Task EditHandler()
         {
@@ -39,7 +43,7 @@ namespace Redmine.ViewModels.ItemViewModels
 
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
-
+        
         [Reactive] public string Description { get; set; }
         [Reactive] public string Name { get; set; }
         [Reactive] public int Id { get; set; }

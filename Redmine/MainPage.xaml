@@ -11,7 +11,10 @@
                   ios:Page.UseSafeArea="true"
                   macos:NavigationPage.NavigationTransitionPopStyle="Crossfade"
                   x:Class="Redmine.MainPage">
-    <NavigationPage Icon="work.png" Title="Projects">
+    <NavigationPage
+        x:Name="projects"
+        Icon="work.png"
+        Title="Projects">
         <x:Arguments>
             <views:DefaultPage></views:DefaultPage>
         </x:Arguments>
