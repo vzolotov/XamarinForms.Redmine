@@ -7,9 +7,11 @@
                   android:TabbedPage.BarItemColor="Black"
                   android:TabbedPage.BarSelectedItemColor="Red"
                   xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                  xmlns:macos="clr-namespace:Xamarin.Forms.PlatformConfiguration.macOSSpecific;assembly=Xamarin.Forms.Core"
                   ios:Page.UseSafeArea="true"
+                  macos:NavigationPage.NavigationTransitionPopStyle="Crossfade"
                   x:Class="Redmine.MainPage">
-    <NavigationPage Icon="work.png" Title="Settings">
+    <NavigationPage Icon="work.png" Title="Projects">
         <x:Arguments>
             <views:DefaultPage></views:DefaultPage>
         </x:Arguments>

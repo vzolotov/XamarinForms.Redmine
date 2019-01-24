@@ -123,18 +123,6 @@ namespace Redmine.iOS.Renderer
 			var links = new List<LinkData>();
 			control.AttributedText = mutable;
 
-			// Makes a list of all links:
-			mutable.EnumerateAttributes(new NSRange(0, mutable.Length),
-				NSAttributedStringEnumeration.LongestEffectiveRangeNotRequired,
-				(NSDictionary attrs, NSRange range, ref bool stop) =>
-				{
-					foreach (var a in attrs) // should use attrs.ContainsKey(something) instead
-					{
-						if (a.Key.ToString() != "NSLink") continue;
-						links.Add(new LinkData(range, a.Value.ToString()));
-						return;
-					}
-				});
 
 			// Sets up a Gesture recognizer:
 			if (links.Count <= 0) return;

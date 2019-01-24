@@ -31,6 +31,14 @@
     <Folder Include="Views\Renderers\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AddIssuePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Views\AddProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
     <Page Include="Views\MasterPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>

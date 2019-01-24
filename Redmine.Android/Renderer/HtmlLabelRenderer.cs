@@ -80,7 +80,6 @@ namespace Redmine.Droid.Renderer
 			customHtml = customHtml.Replace("ul>", "ulc>").Replace("ol>", "olc>").Replace("li>", "lic>");
 
 			Control.SetIncludeFontPadding(false);
-
 			SetTextViewHtml(Control, customHtml);
 		}
 
@@ -93,28 +92,13 @@ namespace Redmine.Droid.Renderer
 				Html.FromHtml(html, null, new ListTagHandler());
 #pragma warning restore 618
 
-			// Makes clickable links
-			text.MovementMethod = LinkMovementMethod.Instance;
-			var strBuilder = new SpannableStringBuilder(sequence);
-			var urls = strBuilder.GetSpans(0, sequence.Length(), Class.FromType(typeof(URLSpan)));
-			foreach (var span in urls)
-				MakeLinkClickable(strBuilder, (URLSpan)span);
+            var strBuilder = new SpannableStringBuilder(sequence);
 
 			// Android adds an unnecessary "\n" that must be removed
 			var value = RemoveLastChar(strBuilder);
 
 			// Finally sets the value of the TextView 
 			text.SetText(value, TextView.BufferType.Spannable);
-		}
-
-	    private void MakeLinkClickable(ISpannable strBuilder, URLSpan span)
-		{
-			var start = strBuilder.GetSpanStart(span);
-			var end = strBuilder.GetSpanEnd(span);
-			var flags = strBuilder.GetSpanFlags(span);
-			var clickable = new MyClickableSpan((HtmlLabel)Element, span);
-			strBuilder.SetSpan(clickable, start, end, flags);
-			strBuilder.RemoveSpan(span);
 		}
 
 		private class MyClickableSpan : ClickableSpan
