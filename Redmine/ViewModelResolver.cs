@@ -24,6 +24,8 @@ namespace Redmine
         public static SettingsPageViewModel SettingsPageViewModel => Container.Resolve<SettingsPageViewModel>();
         public static ProjectsPageViewModel ProjectsPageViewModel => Container.Resolve<ProjectsPageViewModel>();
         public static NewProjectViewModel NewProjectViewModel => Container.Resolve<NewProjectViewModel>();
+        public static DetailPageViewModel DetailPageViewModel => Container.Resolve<DetailPageViewModel>();
+        public static EditProjectViewModel EditProjectViewModel => Container.Resolve<EditProjectViewModel>();
 
         public virtual void PlatformContainerInit()
         {
@@ -43,6 +45,8 @@ namespace Redmine
             Container.Register<SettingsPageViewModel>();
             Container.Register<ProjectsPageViewModel>();
             Container.Register<NewProjectViewModel>();
+            Container.Register<DetailPageViewModel>();
+            Container.Register<EditProjectViewModel>();
         }
 
         public App GetApp()

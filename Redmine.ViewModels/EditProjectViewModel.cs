@@ -1,4 +1,7 @@
-$HEADER$namespace $NAMESPACE$
+namespace Redmine.ViewModels
 {
-  public class $CLASS$ {$END$}
+    public class EditProjectViewModel : ViewModelBase
+    {
+        
+    }
 }

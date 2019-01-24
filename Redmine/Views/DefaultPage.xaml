@@ -12,6 +12,7 @@
              ios:Page.UseSafeArea="true"
              macos:TabbedPage.TabsStyle="Icons"
              Title="Projects"
+             x:Name="projectsPage"
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
              IsBusy="{Binding IsBusy}"
             >
@@ -30,14 +31,16 @@
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
             HasUnevenRows="True"
-            CachingStrategy="RecycleElementAndDataTemplate">
+            CachingStrategy="RecycleElementAndDataTemplate"
+            >
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:ProjectViewModel">
-                   <ViewCell>
+                   <ViewCell >
                        <ViewCell.ContextActions>
                            <MenuItem Command="{Binding EditCommand}"
                                      Text="Edit" />
-                           <MenuItem Command="{Binding DeleteCommand}"
+                           <MenuItem Command="{Binding Source={x:Reference projectsPage}, Path=BindingContext.DeleteCommand}"
+                                     CommandParameter="{Binding}"
                                      Text="Delete" IsDestructive="True" />
                        </ViewCell.ContextActions>
                        <Grid>
@@ -56,6 +59,9 @@
                                FontSize="Default"
                                Grid.Row="1">
                            </controls:HtmlLabel>
+                           <Grid.GestureRecognizers>
+                               <TapGestureRecognizer Command="{Binding DetailCommand}"/>
+                           </Grid.GestureRecognizers>
                        </Grid>
                    </ViewCell>
                </DataTemplate>

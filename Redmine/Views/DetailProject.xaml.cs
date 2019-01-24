@@ -1,4 +1,4 @@
-$HEADER$using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace $NAMESPACE$
+namespace Redmine.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class $CLASS$ : ContentPage
+    public partial class DetailProject : ContentPage
     {
-        public $CLASS$()
+        public DetailProject()
         {
             InitializeComponent();
         }

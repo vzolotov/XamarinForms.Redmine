@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReactiveUI;
+using Redmine.Models.Types;
 using Redmine.Services;
 using Redmine.ViewModels.Interfaces;
 using Redmine.ViewModels.ItemViewModels;
@@ -21,7 +22,16 @@ namespace Redmine.ViewModels
             _projectsService = projectsService;
             _projectNavigationService = projectNavigationService;
             AddCommand = ReactiveCommand.CreateFromTask(AddHandler);
+            DeleteCommand = ReactiveCommand.CreateFromTask <ProjectViewModel>(DeleteHandlerAsync);
         }
+
+        private async Task DeleteHandlerAsync(ProjectViewModel arg)
+        {
+            await _projectsService.DeleteProject(arg.Identify);
+            Projects.Remove(arg);
+        }
+
+        public ICommand DeleteCommand { get; set; }
 
         public ICommand AddCommand { get; set; }
 
@@ -41,7 +51,7 @@ namespace Redmine.ViewModels
                 _offset += projects.Objects.Count;
                 foreach (var item in projects.Objects)
                 {
-                    Projects.Add(new ProjectViewModel(item, _projectsService));
+                    Projects.Add(new ProjectViewModel(item, _projectsService, _projectNavigationService));
                 }
             }
             catch(Exception ex)

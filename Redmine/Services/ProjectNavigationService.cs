@@ -21,6 +21,8 @@ namespace Redmine.Services
         {
             navigationDictionary.Add(typeof(ProjectsPageViewModel), typeof(Tasks));
             navigationDictionary.Add(typeof(NewProjectViewModel), typeof(AddProjectPage));
+            navigationDictionary.Add(typeof(EditProjectViewModel), typeof(EditProjectPage));
+            navigationDictionary.Add(typeof(DetailPageViewModel), typeof(DetailProject));
         }
 
         public bool IsGoBack { get; private set; }
@@ -51,7 +53,7 @@ namespace Redmine.Services
         {
             _currentPage.Disappearing -= Page_Disappearing;
             ViewModelBase viewModel = GetCurrentContext();
-            viewModel?.NavigateFrom();
+            viewModel.NavigateFrom();
         }
 
 

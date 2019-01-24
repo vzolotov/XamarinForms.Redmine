@@ -14,17 +14,20 @@ namespace Redmine.ViewModels.ItemViewModels
     public class ProjectViewModel : ReactiveObject, IEquatable<ProjectViewModel>
     {
         private readonly IProjectsService _projectsService;
+        private readonly INavigationService _navigationService;
 
         public ProjectViewModel(Project project,
-            IProjectsService projectsService)
+            IProjectsService projectsService,
+            INavigationService navigationService)
         {
             _projectsService = projectsService;
+            _navigationService = navigationService;
             Name = project.Name;
             Description = project.Description;
             Id = project.Id;
             Identify = project.Identifier;
             
-            DeleteCommand = ReactiveCommand.CreateFromTask(DeleteHandler);
+            DetailCommand = ReactiveCommand.CreateFromTask(DetailHandler);
             EditCommand = ReactiveCommand.CreateFromTask(EditHandler);
         }
 
@@ -33,15 +36,16 @@ namespace Redmine.ViewModels.ItemViewModels
         private Task EditHandler()
         {
             var project = new Project();
-            return _projectsService.EditProject(project);
+            _projectsService.EditProject(project);
+            return _navigationService.NavigateToAsync<EditProjectViewModel>(this);
         }
 
-        private Task DeleteHandler()
+        private Task DetailHandler()
         {
-            return _projectsService.DeleteProject(Identify);
+            return _navigationService.NavigateToAsync<DetailPageViewModel>(this);
         }
 
-        public ICommand DeleteCommand { get; set; }
+        public ICommand DetailCommand { get; set; }
         public ICommand EditCommand { get; set; }
         
         [Reactive] public string Description { get; set; }
