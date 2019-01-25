@@ -17,12 +17,6 @@
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
              IsBusy="{Binding IsBusy}"
             >
-    <views:PageBase.Resources>
-        <ResourceDictionary>
-            <converters:InvertBoolConverter
-                />
-        </ResourceDictionary>
-    </views:PageBase.Resources>
     <views:PageBase.ToolbarItems>
         <ToolbarItem
             Text="Add"

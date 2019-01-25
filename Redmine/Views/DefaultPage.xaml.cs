@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Redmine.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Skip)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DefaultPage
     {
         public DefaultPage()

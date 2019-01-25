@@ -68,5 +68,10 @@ namespace Redmine.Services
         {
             return _currentPage.BindingContext as ViewModelBase;
         }
+
+        public Task GoBack()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

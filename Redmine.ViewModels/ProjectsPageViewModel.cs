@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using Redmine.Models.Types;
 using Redmine.Services;
 using Redmine.ViewModels.Interfaces;
@@ -46,14 +47,15 @@ namespace Redmine.ViewModels
         {
             return _projectNavigationService.NavigateToAsync<NewProjectViewModel>(null);
         }
-        
-        public ObservableCollection<ProjectViewModel> Projects { get; set; } = new ObservableCollection<ProjectViewModel>();
+
+        [Reactive]public ObservableCollection<ProjectViewModel> Projects { get; set; }
 
         public override async Task NavigateToAsync(object data)
         {
             IsBusy = true;
             try
             {
+                Projects = new ObservableCollection<ProjectViewModel>(); 
                 var projects = await _projectsService.GetProjectsAsync();
                 _offset += projects.Objects.Count;
                 foreach (var item in projects.Objects)

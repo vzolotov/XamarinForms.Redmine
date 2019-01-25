@@ -30,7 +30,7 @@ namespace Redmine
         public virtual void PlatformContainerInit()
         {
             ///Services
-            Container.Register<IProjectNavigationService, ProjectNavigationService>();
+            Container.Register<IProjectNavigationService, ProjectNavigationService>(Reuse.Singleton);
             Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
             Container.Register<IMainView, App>(Reuse.Singleton);
             Container.Register<IRedmineService, RedmineService>(Reuse.Singleton);
