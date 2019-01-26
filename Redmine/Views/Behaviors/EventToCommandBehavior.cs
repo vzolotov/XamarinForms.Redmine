@@ -57,12 +57,12 @@ namespace Redmine.Views.Behaviors
                 return;
             }
 
-            EventInfo eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
+            var eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
             if (eventInfo == null)
             {
                 throw new ArgumentException(string.Format("EventToCommandBehavior: Can't register the '{0}' event.", EventName));
             }
-            MethodInfo methodInfo = typeof(EventToCommandBehavior).GetTypeInfo().GetDeclaredMethod("OnEvent");
+            var methodInfo = typeof(EventToCommandBehavior).GetTypeInfo().GetDeclaredMethod("OnEvent");
             eventHandler = methodInfo.CreateDelegate(eventInfo.EventHandlerType, this);
             eventInfo.AddEventHandler(AssociatedObject, eventHandler);
         }
@@ -78,7 +78,7 @@ namespace Redmine.Views.Behaviors
             {
                 return;
             }
-            EventInfo eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
+            var eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
             if (eventInfo == null)
             {
                 throw new ArgumentException(string.Format("EventToCommandBehavior: Can't de-register the '{0}' event.", EventName));
@@ -122,8 +122,8 @@ namespace Redmine.Views.Behaviors
                 return;
             }
 
-            string oldEventName = (string)oldValue;
-            string newEventName = (string)newValue;
+            var oldEventName = (string)oldValue;
+            var newEventName = (string)newValue;
 
             behavior.DeregisterEvent(oldEventName);
             behavior.RegisterEvent(newEventName);

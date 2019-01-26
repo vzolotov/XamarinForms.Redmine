@@ -48,14 +48,14 @@ namespace Redmine.ViewModels
             return _projectNavigationService.NavigateToAsync<NewProjectViewModel>(null);
         }
 
-        [Reactive]public ObservableCollection<ProjectViewModel> Projects { get; set; }
+        public ObservableCollection<ProjectViewModel> Projects { get; set; } = new ObservableCollection<ProjectViewModel>();
 
         public override async Task NavigateToAsync(object data)
         {
             IsBusy = true;
             try
             {
-                Projects = new ObservableCollection<ProjectViewModel>(); 
+                Projects.Clear(); 
                 var projects = await _projectsService.GetProjectsAsync();
                 _offset += projects.Objects.Count;
                 foreach (var item in projects.Objects)

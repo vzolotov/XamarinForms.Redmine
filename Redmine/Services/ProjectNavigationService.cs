@@ -32,7 +32,6 @@ namespace Redmine.Services
             if (_rootPage == null)
             {
                 _rootPage = Application.Current.MainPage.FindByName<NavigationPage>("projects");
-                _rootPage.Popped += RootPage_Popped;
                 IsGoBack = _rootPage.Navigation.NavigationStack.Any();
             }
 
@@ -50,18 +49,11 @@ namespace Redmine.Services
             await _rootPage.PushAsync(_currentPage, true);
         }
 
-        void RootPage_Popped(object sender, NavigationEventArgs e)
-        {
-            var page = _rootPage.Navigation.NavigationStack.Last();
-            ViewModelBase viewModel = page.BindingContext as ViewModelBase;
-            viewModel?.NavigateToAsync(null);
-        }
-
 
         void Page_Disappearing(object sender, EventArgs e)
         {
             _currentPage.Disappearing -= Page_Disappearing;
-            ViewModelBase viewModel = GetCurrentContext();
+            var viewModel = GetCurrentContext();
             viewModel.NavigateFrom();
         }
 
@@ -69,7 +61,7 @@ namespace Redmine.Services
         void Page_AppearingAsync(object sender, EventArgs e)
         {
             _currentPage.Appearing -= Page_AppearingAsync;
-            ViewModelBase viewModel = GetCurrentContext();
+            var viewModel = GetCurrentContext();
             viewModel?.NavigateToAsync(_currentPageData);
             _currentPageData = null;
         }
@@ -81,7 +73,10 @@ namespace Redmine.Services
 
         public async Task GoBack()
         {
-            var page = await _rootPage.PopAsync();
+            await _rootPage.PopAsync();
+            var page = _rootPage.Navigation.NavigationStack.Last();
+            var viewModel = page.BindingContext as ViewModelBase;
+            viewModel?.NavigateToAsync(null);
         }
     }
 }
