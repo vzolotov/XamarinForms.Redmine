@@ -56,7 +56,7 @@
                                      CommandParameter="{Binding}"
                                      Text="Delete" IsDestructive="True" />
                        </ViewCell.ContextActions>
-                       <Grid>
+                       <Grid Margin="20, 5">
                            <Grid.RowDefinitions>
                                <RowDefinition Height="Auto"></RowDefinition>
                                <RowDefinition Height="Auto"></RowDefinition>
