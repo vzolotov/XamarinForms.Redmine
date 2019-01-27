@@ -2,7 +2,7 @@
 
 <views:PageBase xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Redmine.Views.DefaultPage"
+             x:Class="Redmine.Views.ProjectsPage"
              xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
              xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 

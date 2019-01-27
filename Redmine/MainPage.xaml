@@ -16,7 +16,7 @@
         Icon="work.png"
         Title="Projects">
         <x:Arguments>
-            <views:DefaultPage></views:DefaultPage>
+            <views:ProjectsPage></views:ProjectsPage>
         </x:Arguments>
     </NavigationPage>      
     <NavigationPage Icon="todo.png" Title="Tasks">

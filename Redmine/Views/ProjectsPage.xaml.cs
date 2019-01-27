@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Redmine.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DefaultPage
+    public partial class ProjectsPage
     {
-        public DefaultPage()
+        public ProjectsPage()
         {
             InitializeComponent();
         }
