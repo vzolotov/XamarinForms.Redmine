@@ -23,7 +23,13 @@ namespace Redmine.ViewModels
             _projectsService = projectsService;
             _projectNavigationService = projectNavigationService;
             AddCommand = ReactiveCommand.CreateFromTask(AddHandler);
-            DeleteCommand = ReactiveCommand.CreateFromTask <ProjectViewModel>(DeleteHandlerAsync);
+            DeleteCommand = ReactiveCommand.CreateFromTask<ProjectViewModel>(DeleteHandlerAsync);
+            ViewCommand = ReactiveCommand.CreateFromTask<ProjectViewModel>(ViewHandlerAsync);
+        }
+
+        private Task ViewHandlerAsync(ProjectViewModel arg)
+        {
+           return _projectNavigationService.NavigateToAsync<DetailPageViewModel>(arg);
         }
 
         private async Task DeleteHandlerAsync(ProjectViewModel arg)
@@ -42,6 +48,8 @@ namespace Redmine.ViewModels
         public ICommand DeleteCommand { get; set; }
 
         public ICommand AddCommand { get; set; }
+        
+        public ICommand ViewCommand { get; set; }
 
         private Task AddHandler()
         {

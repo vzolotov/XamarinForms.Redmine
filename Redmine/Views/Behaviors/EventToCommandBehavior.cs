@@ -16,26 +16,26 @@ namespace Redmine.Views.Behaviors
 
         public string EventName
         {
-            get { return (string)GetValue(EventNameProperty); }
-            set { SetValue(EventNameProperty, value); }
+            get => (string)GetValue(EventNameProperty);
+            set => SetValue(EventNameProperty, value);
         }
 
         public ICommand Command
         {
-            get { return (ICommand)GetValue(CommandProperty); }
-            set { SetValue(CommandProperty, value); }
+            get => (ICommand)GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
         }
 
         public object CommandParameter
         {
-            get { return GetValue(CommandParameterProperty); }
-            set { SetValue(CommandParameterProperty, value); }
+            get => GetValue(CommandParameterProperty);
+            set => SetValue(CommandParameterProperty, value);
         }
 
         public IValueConverter Converter
         {
-            get { return (IValueConverter)GetValue(InputConverterProperty); }
-            set { SetValue(InputConverterProperty, value); }
+            get => (IValueConverter)GetValue(InputConverterProperty);
+            set => SetValue(InputConverterProperty, value);
         }
 
         protected override void OnAttachedTo(View bindable)
@@ -60,7 +60,7 @@ namespace Redmine.Views.Behaviors
             var eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
             if (eventInfo == null)
             {
-                throw new ArgumentException(string.Format("EventToCommandBehavior: Can't register the '{0}' event.", EventName));
+                throw new ArgumentException($"EventToCommandBehavior: Can't register the '{EventName}' event.");
             }
             var methodInfo = typeof(EventToCommandBehavior).GetTypeInfo().GetDeclaredMethod("OnEvent");
             eventHandler = methodInfo.CreateDelegate(eventInfo.EventHandlerType, this);
@@ -81,7 +81,7 @@ namespace Redmine.Views.Behaviors
             var eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
             if (eventInfo == null)
             {
-                throw new ArgumentException(string.Format("EventToCommandBehavior: Can't de-register the '{0}' event.", EventName));
+                throw new ArgumentException($"EventToCommandBehavior: Can't de-register the '{EventName}' event.");
             }
             eventInfo.RemoveEventHandler(AssociatedObject, eventHandler);
             eventHandler = null;

@@ -10,6 +10,7 @@
              xmlns:macos="clr-namespace:Xamarin.Forms.PlatformConfiguration.macOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:controls="clr-namespace:Redmine.Views.Controls;assembly=Redmine"
              xmlns:converters="clr-namespace:Redmine.Views.Converters;assembly=Redmine"
+             xmlns:behaviors="clr-namespace:Redmine.Views.Behaviors;assembly=Redmine"
              ios:Page.UseSafeArea="true"
              macos:TabbedPage.TabsStyle="Icons"
              Title="Projects"
@@ -17,6 +18,11 @@
              BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
              IsBusy="{Binding IsBusy}"
             >
+    <views:PageBase.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTapped"></converters:ItemTappedEventArgsConverter>
+        </ResourceDictionary>
+    </views:PageBase.Resources>
     <views:PageBase.ToolbarItems>
         <ToolbarItem
             Text="Add"
@@ -34,7 +40,13 @@
             HasUnevenRows="True"
             CachingStrategy="RetainElement"
             >
-           <ListView.ItemTemplate>
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior 
+                    Command="{Binding ViewCommand}"
+                    Converter="{StaticResource ItemTapped}"
+                    EventName="ItemTapped"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:ProjectViewModel">
                    <ViewCell >
                        <ViewCell.ContextActions>
@@ -60,9 +72,6 @@
                                FontSize="Default"
                                Grid.Row="1">
                            </controls:HtmlLabel>
-                           <Grid.GestureRecognizers>
-                               <TapGestureRecognizer Command="{Binding DetailCommand}"/>
-                           </Grid.GestureRecognizers>
                        </Grid>
                    </ViewCell>
                </DataTemplate>

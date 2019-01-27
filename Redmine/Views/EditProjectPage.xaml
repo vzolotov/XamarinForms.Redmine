@@ -6,10 +6,6 @@
              x:Class="Redmine.Views.EditProjectPage"
              BindingContext="{x:Static redmine:ViewModelResolver.EditProjectViewModel}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Entry Text="{Binding}" />
     </ContentPage.Content>
 </ContentPage>
