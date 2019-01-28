@@ -21,7 +21,7 @@
     </NavigationPage>      
     <NavigationPage Icon="todo.png" Title="Tasks">
         <x:Arguments>
-            <views:Tasks ></views:Tasks> 
+            <views:TasksPage ></views:TasksPage> 
         </x:Arguments>
     </NavigationPage>
     <NavigationPage 

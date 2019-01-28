@@ -19,7 +19,7 @@ namespace Redmine.Services
 
         public ProjectNavigationService()
         {
-            navigationDictionary.Add(typeof(ProjectsPageViewModel), typeof(Tasks));
+            navigationDictionary.Add(typeof(ProjectsPageViewModel), typeof(TasksPage));
             navigationDictionary.Add(typeof(NewProjectViewModel), typeof(AddProjectPage));
             navigationDictionary.Add(typeof(EditProjectViewModel), typeof(EditProjectPage));
             navigationDictionary.Add(typeof(DetailPageViewModel), typeof(DetailProject));

@@ -126,6 +126,9 @@
       <HintPath>..\packages\redmine-net-api.1.0.0\lib\netstandard2.0\redmine-net-api.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
+    <Reference Include="ZXing.Net.Mobile.Forms">
+      <HintPath>..\packages\ZXing.Net.Mobile.Forms.2.4.1\lib\netstandard1.0\ZXing.Net.Mobile.Forms.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -168,6 +171,7 @@
     <Compile Include="MacOsResolver.cs" />
     <Compile Include="Renderers\HtmlLabelRenderer.cs" />
     <Compile Include="SpotlightSearch.cs" />
+    <Compile Include="TodoItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj">

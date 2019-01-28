@@ -55,7 +55,7 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>
-    <Page Include="Views\Tasks.xaml">
+    <Page Include="Views\TasksPages.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>

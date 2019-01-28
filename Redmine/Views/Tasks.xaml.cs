@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace Redmine.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Tasks : PageBase
+    public partial class TasksPage : PageBase
     {
-        public Tasks()
+        public TasksPage()
         {
             InitializeComponent();
         }

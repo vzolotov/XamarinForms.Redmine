@@ -7,8 +7,7 @@ namespace Redmine.ViewModels
     public class EditProjectViewModel : ViewModelBase
     {
         public override Task NavigateToAsync(object data)
-        {
-            Project = data as ProjectViewModel;
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Project = data as ProjectViewModel;
             return base.NavigateToAsync(data);
         }
 

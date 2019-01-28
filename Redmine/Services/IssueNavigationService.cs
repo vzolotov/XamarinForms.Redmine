@@ -20,7 +20,7 @@ namespace Redmine.Services
 
         public IssueNavigationService()
         {
-            navigationDictionary.Add(typeof(IssuesPageViewModel), typeof(Tasks));
+            navigationDictionary.Add(typeof(IssuesPageViewModel), typeof(TasksPage));
             navigationDictionary.Add(typeof(SettingsPageViewModel), typeof(SettingsPage));
         }
 
