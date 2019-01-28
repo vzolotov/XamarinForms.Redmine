@@ -21,7 +21,9 @@ namespace Redmine.Services
         {
             if (_rootPage == null)
             {
-                _rootPage = Application.Current.MainPage.FindByName<NavigationPage>("settings");
+                _rootPage = Application.Current.MainPage is NavigationPage
+                        ? Application.Current.MainPage as NavigationPage
+                        : Application.Current.MainPage.FindByName<NavigationPage>("settings");
             }
 
             if (page == null)

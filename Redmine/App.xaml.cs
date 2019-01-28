@@ -32,7 +32,7 @@ namespace Redmine
 
         public void GoToLogin()
         {
-            MainPage = new LoginPage();
+           MainPage = new NavigationPage(new LoginPage());
         }
 
         public void GoToLogic()
