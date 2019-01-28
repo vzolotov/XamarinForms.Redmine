@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Redmine.Models;
 using Redmine.ViewModels;
 using Redmine.ViewModels.Interfaces;
 using Redmine.Views;
@@ -32,9 +33,12 @@ namespace Redmine.Services
             await _rootPage.PushAsync(scannerPage, true);
         }
 
-        public async Task GoBack()
+        public async Task GoBackWithScanData(ScanModel scanModel)
         {
             await _rootPage.PopAsync();
+            var page = _rootPage.Navigation.NavigationStack.Last();
+            var viewModel = page.BindingContext as ViewModelBase;
+            viewModel?.NavigateToAsync(scanModel);
         }
     }
 }

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Threading.Tasks;
+using Redmine.Models;
 using Redmine.Services.Interfaces;
 using Redmine.ViewModels.Interfaces;
 using Xamarin.Forms;
@@ -20,10 +24,17 @@ namespace Redmine.Services
         {
             var scannerPage = new ZXingScannerPage();
 
-            scannerPage.OnScanResult += (result) => {
+            scannerPage.OnScanResult += (result) =>
+            {
                 scannerPage.IsScanning = false;
-                Device.BeginInvokeOnMainThread(() => {
-                   
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(result.Text)))
+                    {
+                        var deserializer = new DataContractJsonSerializer(typeof(ScanModel));
+                        var scanResult = (ScanModel)deserializer.ReadObject(ms);
+                        _navigationService.GoBackWithScanData(scanResult);
+                    }
                 });
             };
             _navigationService.NavigateTo<ZXingScannerPage>(scannerPage);
