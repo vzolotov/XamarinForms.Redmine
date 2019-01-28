@@ -29,7 +29,7 @@
             RefreshCommand="{Binding RefreshCommand}">
            <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:IssueViewModel">
-                   <ViewCell>
+                   <ViewCell StyleId="disclosure">
                        <ViewCell.ContextActions>
                            <MenuItem Command="{Binding EditCommand}"
                                      Text="Edit" />

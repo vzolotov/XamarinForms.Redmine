@@ -48,7 +48,7 @@
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                <DataTemplate x:DataType="itemVm:ProjectViewModel">
-                   <ViewCell >
+                   <ViewCell StyleId="disclosure">
                        <ViewCell.ContextActions>
                            <MenuItem Command="{Binding EditCommand}"
                                      Text="Edit" />
