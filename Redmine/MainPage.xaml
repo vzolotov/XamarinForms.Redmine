@@ -24,5 +24,12 @@
             <views:Tasks ></views:Tasks> 
         </x:Arguments>
     </NavigationPage>
-    <views:SettingsPage Icon="settings.png"></views:SettingsPage>
+    <NavigationPage 
+        x:Name="settings"
+        Icon="settings.png"
+        Title="Settings">
+        <x:Arguments>
+            <views:SettingsPage></views:SettingsPage>
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>

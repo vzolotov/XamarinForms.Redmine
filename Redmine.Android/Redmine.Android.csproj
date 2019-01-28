@@ -66,6 +66,9 @@
     <PackageReference Include="ReactiveUI">
       <Version>9.8.19</Version>
     </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

@@ -12,23 +12,38 @@ namespace Redmine.ViewModels
     {
         private readonly ISettingsService _settingsService;
         private readonly IUserService _userService;
+        private readonly IQrScannerService _qrScannerService;
         private readonly IMainView _mainViewService;
 
         public SettingsPageViewModel(
             ISettingsService settingsService,
             IUserService userService,
+            IQrScannerService qrScannerService,
             IMainView mainViewService)
         {
             _settingsService = settingsService;
             _userService = userService;
+            _qrScannerService = qrScannerService;
             _mainViewService = mainViewService;
             var canSave =
                 this.WhenAnyValue(x => x.Host, x => x.ApiKey)
                 .Select((arg) =>
                 !string.IsNullOrWhiteSpace(arg.Item1) && !string.IsNullOrWhiteSpace(arg.Item2));
 
+            var canScan =
+                this.WhenAnyValue(x => x.Host, x => x.ApiKey)
+                .Select((arg) =>
+                string.IsNullOrWhiteSpace(arg.Item1) || string.IsNullOrWhiteSpace(arg.Item2));
+
             SaveCommand = ReactiveCommand.Create(SaveSettings, canExecute: canSave);
+            ScanQrCodeCommand = ReactiveCommand.Create(ScanQrHandler);
         }
+
+        private void ScanQrHandler()
+        {
+            _qrScannerService.Scan();
+        }
+
 
         public override Task NavigateToAsync(object data)
         {
@@ -59,5 +74,6 @@ namespace Redmine.ViewModels
         [Reactive] public string Host { get; set; }
         [Reactive] public string ApiKey { get; set; }
         public ICommand SaveCommand { get; set; }
+        public ICommand ScanQrCodeCommand { get; set; }
     }
 }

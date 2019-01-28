@@ -2,8 +2,6 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using DryIoc;
-using Redmine.Services.Interfaces;
 
 namespace Redmine.Droid
 {
@@ -21,6 +19,12 @@ namespace Redmine.Droid
             resolver.PlatformContainerInit();
 
             LoadApplication(resolver.GetApp());
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

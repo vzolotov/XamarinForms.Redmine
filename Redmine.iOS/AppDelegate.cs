@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
 using UIKit;
-using DryIoc;
-using Redmine.Services.Interfaces;
-
 namespace Redmine.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -31,6 +25,7 @@ namespace Redmine.iOS
             var resolver = new IOsResolver();
             resolver.PlatformContainerInit();
             LoadApplication(resolver.GetApp());
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             return base.FinishedLaunching(app, options);
         }

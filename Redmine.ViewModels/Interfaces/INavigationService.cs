@@ -17,4 +17,9 @@ namespace Redmine.ViewModels.Interfaces
     {
 
     }
+    
+    public interface ISettingsNavigationService
+    {
+        Task NavigateTo<T>(T page);
+    }
 }

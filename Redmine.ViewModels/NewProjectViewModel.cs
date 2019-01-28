@@ -7,6 +7,7 @@ using System.Reactive.Linq;
 using System;
 using Redmine.ViewModels.Interfaces;
 using Redmine.Models.Types;
+using Redmine.Services.Interfaces;
 
 namespace Redmine.ViewModels
 {

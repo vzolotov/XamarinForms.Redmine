@@ -30,6 +30,8 @@ namespace Redmine
         public virtual void PlatformContainerInit()
         {
             ///Services
+            Container.Register<IQrScannerService, QrScannerService>();
+            Container.Register<ISettingsNavigationService, SettingsNavigationService>(Reuse.Singleton);
             Container.Register<IProjectNavigationService, ProjectNavigationService>(Reuse.Singleton);
             Container.Register<ISettingsService, SettingsService>(Reuse.Singleton);
             Container.Register<IMainView, App>(Reuse.Singleton);
