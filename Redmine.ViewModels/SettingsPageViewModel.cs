@@ -5,6 +5,7 @@ using ReactiveUI.Fody.Helpers;
 using Redmine.Services;
 using System.Reactive.Linq;
 using Redmine.Services.Interfaces;
+using Redmine.Models;
 
 namespace Redmine.ViewModels
 {
@@ -47,6 +48,14 @@ namespace Redmine.ViewModels
 
         public override Task NavigateToAsync(object data)
         {
+            var scanData = data as ScanModel;
+            if (scanData != null)
+            {
+                _settingsService.Host = scanData.Host;
+                _settingsService.ApiKey = scanData.Key;
+                _mainViewService.GoToLogic();
+                return Task.CompletedTask;
+            }
             Host = _settingsService.Host;
             ApiKey = _settingsService.ApiKey;
 

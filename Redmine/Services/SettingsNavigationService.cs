@@ -40,7 +40,7 @@ namespace Redmine.Services
             await _rootPage.PopAsync();
             var page = _rootPage.Navigation.NavigationStack.Last();
             var viewModel = page.BindingContext as ViewModelBase;
-            viewModel?.NavigateToAsync(scanModel);
+            await viewModel?.NavigateToAsync(scanModel);
         }
     }
 }

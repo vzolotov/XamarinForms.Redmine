@@ -37,8 +37,7 @@ namespace Redmine
 
         public void GoToLogic()
         {
-            if (MainPage is LoginPage)
-                MainPage = new MainPage();
+           MainPage = new MainPage();
         }
     }
 }

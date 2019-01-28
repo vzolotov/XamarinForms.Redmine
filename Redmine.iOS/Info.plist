@@ -38,5 +38,7 @@
 	<string>1</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
+	<key>NSCameraUsageDescription</key>
+	<string>camera description.</string>
 </dict>
 </plist>
