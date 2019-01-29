@@ -9,15 +9,9 @@ namespace Redmine.MacOs.Services
 {
     public class LoggerService : ILoggerService
     {
-        string Tag { get; set; } = "";
+        private string Tag { get; } = AppConstants.LoggerTag;
 
         Severity Severity { get; set; } = Severity.All;
-
-        public void Init(string tag, Severity severity = Severity.All)
-        {
-            Tag = tag;
-            Severity = severity;
-        }
 
         public void Verbose(string message) => Verbose(message, Tag);
 

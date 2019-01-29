@@ -16,13 +16,18 @@ namespace Redmine.ViewModels
     {
         private readonly IProjectsService _projectsService;
         private readonly IProjectNavigationService _projectNavigationService;
+        private readonly ILoggerService _loggerService;
         private int _limit = 25;
         private int _offset = 0;
 
-        public ProjectsPageViewModel(IProjectsService projectsService, IProjectNavigationService projectNavigationService)
+        public ProjectsPageViewModel(
+            IProjectsService projectsService,
+            IProjectNavigationService projectNavigationService,
+            ILoggerService loggerService)
         {
             _projectsService = projectsService;
             _projectNavigationService = projectNavigationService;
+            _loggerService = loggerService;
             AddCommand = ReactiveCommand.CreateFromTask(AddHandler);
             DeleteCommand = ReactiveCommand.CreateFromTask<ProjectViewModel>(DeleteHandlerAsync);
             ViewCommand = ReactiveCommand.CreateFromTask<ProjectViewModel>(ViewHandlerAsync);
@@ -42,7 +47,7 @@ namespace Redmine.ViewModels
             }
             catch(Exception ex)
             {
-
+                _loggerService.Error(ex.ToString());
             }
         }
 
