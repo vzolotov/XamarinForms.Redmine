@@ -102,15 +102,17 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <CodesignKey>iPhone Developer: Viacheslava Zolotov (8TNG536H3K)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <LangVersion>Latest</LangVersion>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchLink>Full</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderer\HtmlLabelRenderer.cs" />
+    <Compile Include="Services\LoggerService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,6 +212,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj">
+      <Project>{25977592-827b-46fc-a38d-bda3b5a79712}</Project>
+      <Name>Redmine.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj">
       <Project>{00cfb4bd-14eb-4a35-8ebe-50e060ea45e4}</Project>
       <Name>Redmine.Services</Name>

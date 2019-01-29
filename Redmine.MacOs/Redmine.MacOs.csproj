@@ -170,6 +170,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MacOsResolver.cs" />
     <Compile Include="Renderers\HtmlLabelRenderer.cs" />
+    <Compile Include="Services\LoggerService.cs" />
     <Compile Include="SpotlightSearch.cs" />
     <Compile Include="TodoItem.cs" />
   </ItemGroup>

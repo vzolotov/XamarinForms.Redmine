@@ -3,7 +3,6 @@ using System.ComponentModel;
 using Android.Content;
 using Android.OS;
 using Android.Text;
-using Android.Text.Method;
 using Android.Text.Style;
 using Android.Widget;
 using Java.Lang;
