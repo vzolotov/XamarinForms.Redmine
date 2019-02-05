@@ -51,6 +51,11 @@ namespace Redmine.Models.Types
             return Equals(obj as Tracker);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         /// <summary>
         /// 
         /// </summary>

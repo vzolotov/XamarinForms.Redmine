@@ -76,6 +76,10 @@
                    </ViewCell>
                </DataTemplate>
            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal">
+            </StackLayout>
+        </ListView.Footer>
        </ListView>
     </views:PageBase.VisualElementControl>
 </views:PageBase>

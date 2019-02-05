@@ -48,8 +48,7 @@ namespace Redmine.ViewModels
 
         public override Task NavigateToAsync(object data)
         {
-            var scanData = data as ScanModel;
-            if (scanData != null)
+            if (data is ScanModel scanData)
             {
                 _settingsService.Host = scanData.Host;
                 _settingsService.ApiKey = scanData.Key;
