@@ -10,7 +10,7 @@ namespace Redmine.Views.MarkupExtension
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
-        const string ResourceId = "Redmine.Localization.Resource";
+        const string ResourceId = "Redmine.Localization.Resources";
         public string Text { get; set; }
 
         public object ProvideValue(IServiceProvider serviceProvider)

@@ -119,6 +119,7 @@
     <Compile Include="IOsResolver.cs" />
     <None Include="FodyWeavers.xml" />
     <Compile Include="Renderer\ViewCellRenderer.cs" />
+    <Compile Include="Services\EmptyClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
