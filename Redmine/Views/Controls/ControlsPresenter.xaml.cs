@@ -5,6 +5,7 @@ namespace Redmine.Views.Controls
 {
     public partial class ControlsPresenter : ContentView
     {
+        public event EventHandler AAA;
         public ControlsPresenter()
         {
             InitializeComponent();

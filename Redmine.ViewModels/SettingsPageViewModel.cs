@@ -6,6 +6,7 @@ using Redmine.Services;
 using System.Reactive.Linq;
 using Redmine.Services.Interfaces;
 using Redmine.Models;
+using System;
 
 namespace Redmine.ViewModels
 {
@@ -15,17 +16,20 @@ namespace Redmine.ViewModels
         private readonly IUserService _userService;
         private readonly IQrScannerService _qrScannerService;
         private readonly IMainView _mainViewService;
+        private readonly ILoggerService _loggerService;
 
         public SettingsPageViewModel(
             ISettingsService settingsService,
             IUserService userService,
             IQrScannerService qrScannerService,
-            IMainView mainViewService)
+            IMainView mainViewService,
+            ILoggerService loggerService)
         {
             _settingsService = settingsService;
             _userService = userService;
             _qrScannerService = qrScannerService;
             _mainViewService = mainViewService;
+            _loggerService = loggerService;
             var canSave =
                 this.WhenAnyValue(x => x.Host, x => x.ApiKey)
                 .Select((arg) =>
@@ -73,7 +77,7 @@ namespace Redmine.ViewModels
                 _settingsService.ApiKey = ApiKey;
                 _mainViewService.GoToLogic();
             }
-            catch
+            catch (Exception ex)
             {
 
             }
