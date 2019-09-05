@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="ReactiveUI" Version="9.7.2" />
+    <PackageReference Include="ReactiveUI.Fody" Version="9.7.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ItemViewModels\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="ProjectsViewModels\" />
+  </ItemGroup>
+</Project>

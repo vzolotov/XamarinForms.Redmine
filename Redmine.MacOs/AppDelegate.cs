@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using AppKit;
+using CoreSpotlight;
+using DryIoc;
 using Foundation;
+using Redmine.Models;
+using Redmine.Services.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
@@ -11,6 +15,10 @@ namespace Redmine.MacOs
     public class AppDelegate : FormsApplicationDelegate
     {
         NSWindow _window;
+        const string activityName = "com.xamarin.monkeys.monkey";
+        public SpotlightSearch SpotlightSearch { get; private set; }
+        List<TodoItem> todoItems;
+
         public AppDelegate()
         {
             var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
@@ -21,47 +29,43 @@ namespace Redmine.MacOs
                 Title = "Xamarin.Forms on Mac!",
                 TitleVisibility = NSWindowTitleVisibility.Hidden
             };
-
-           
-
-        //    NSMenuItem appMenuItem = new NSMenuItem();
-        //    menubar.AddItem(appMenuItem);
-
-        //    NSMenuItem appMenuItem1 = new NSMenuItem();
-        //    menubar.AddItem(appMenuItem1);
-
-        //    NSMenu appMenu = new NSMenu();
-        //    string quitTitle = String.Format("Quit {0}", "-----" );
-        //    NSMenuItem quitMenuItem = new NSMenuItem(quitTitle, "q", delegate {
-        //        NSApplication.SharedApplication.Terminate(menubar);
-        //    });
-        //    appMenu.AddItem(quitMenuItem);
-        //    appMenuItem.Submenu = appMenu;
-
-        //    NSMenu appMenu1 = new NSMenu("222");
-        //    string quitTitle1 = String.Format("Quit {0}", "-----");
-        //    NSMenuItem quitMenuItem1 = new NSMenuItem(quitTitle1, "q", delegate {
-        //        NSApplication.SharedApplication.Terminate(menubar);
-        //    });
-        //    appMenu1.AddItem(quitMenuItem1);
-        //    appMenuItem1.Submenu = appMenu1;
-        //    NSMenuItem u = new NSMenuItem();
-           
-        //    //menubar.AddItem(appMenuItem);
-
-        //    NSApplication.SharedApplication.MainMenu = menubar;
+            todoItems = new List<TodoItem>
+            {
+                new TodoItem
+                {
+                    Name = "qwertyuiop",
+                    Done = true,
+                    Notes = "222",
+                    ID = "333"
+                }
+            };
         }
 
-        public override NSWindow MainWindow
-        {
-            get { return _window; }
-        }
+        public override NSWindow MainWindow => _window;
 
         public override void DidFinishLaunching(NSNotification notification)
         {
             Forms.Init();
-            LoadApplication(new App());
+            var resolver = new MacOsResolver();
+            resolver.PlatformContainerInit();
+
+            LoadApplication(resolver.GetApp());
+
+            SpotlightSearch = new SpotlightSearch(todoItems);
             base.DidFinishLaunching(notification);
+        }
+
+        [Export("application:continueUserActivity:restorationHandler:")]
+        public override bool ContinueUserActivity(NSApplication application, NSUserActivity userActivity, ContinueUserActivityRestorationHandler restorationHandler)
+        {
+            if (userActivity.ActivityType == CSSearchableItem.ActionType)
+            {
+                string id = userActivity.UserInfo.ObjectForKey(CSSearchableItem.ActivityIdentifier).ToString();
+                if (!string.IsNullOrEmpty(id))
+                {
+                }
+            }
+            return true;
         }
     }
 }

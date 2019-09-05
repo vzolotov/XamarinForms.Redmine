@@ -7,17 +7,35 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
+    <PackageReference Include="ReactiveUI" Version="9.12.1" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="9.12.1" />
+    <PackageReference Include="ReactiveUI.Events.XamForms" Version="9.12.1" />
+    <PackageReference Include="DryIoc" Version="4.0.1" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\Behaviors\" />
+    <Folder Include="Views\Controls\" />
+    <Folder Include="Views\Controls\Mobile\" />
+    <Folder Include="Views\Controls\Desktop\" />
+    <Folder Include="Views\Renderers\" />
+    <Folder Include="Views\Converters\" />
+    <Folder Include="Localization\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\DefaultPage.xaml">
+    <Page Include="Views\AddIssuePage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>
@@ -25,9 +43,29 @@
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>
-    <Page Include="Views\Tasks.xaml">
+    <Page Include="Views\ProjectViews\AddProjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator></Generator>
     </Page>
+    <Page Include="Views\ProjectViews\DetailProject.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Views\ProjectViews\EditProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="Views\TasksPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.ViewModels\Redmine.ViewModels.csproj" />
+    <ProjectReference Include="..\Redmine.Services\Redmine.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\SettingsPage.cs" />
+    <Compile Remove="Services\ISettingsService.cs" />
   </ItemGroup>
 </Project>

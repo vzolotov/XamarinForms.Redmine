@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
+                  xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                  android:TabbedPage.ToolbarPlacement="Bottom"
+                  android:TabbedPage.BarItemColor="Black"
+                  android:TabbedPage.BarSelectedItemColor="Red"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                  xmlns:macos="clr-namespace:Xamarin.Forms.PlatformConfiguration.macOSSpecific;assembly=Xamarin.Forms.Core"
+                  ios:Page.UseSafeArea="true"
+                  macos:NavigationPage.NavigationTransitionPopStyle="Crossfade"
                   x:Class="Redmine.MainPage">
-    <MasterDetailPage.Master>
-        <views:MasterPage x:Name="masterPage" />
-    </MasterDetailPage.Master>
-    <MasterDetailPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                <views:Tasks></views:Tasks>
-            </x:Arguments>
-        </NavigationPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+    <NavigationPage
+        x:Name="projects"
+        Icon="work.png"
+        Title="Projects">
+        <x:Arguments>
+            <views:ProjectsPage></views:ProjectsPage>
+        </x:Arguments>
+    </NavigationPage>      
+    <NavigationPage Icon="todo.png" Title="Tasks">
+        <x:Arguments>
+            <views:TasksPage ></views:TasksPage> 
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage 
+        x:Name="settings"
+        Icon="settings.png"
+        Title="Settings">
+        <x:Arguments>
+            <views:SettingsPage></views:SettingsPage>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

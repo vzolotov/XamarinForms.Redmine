@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Redmine.Views.MyPage"
+             xmlns:controls="clr-namespace:Redmine.Views.Controls;assembly=Redmine"
+             
+    xmlns:desktop="clr-namespace:Redmine.Views.Controls.Desktop;assembly=Redmine"
+    xmlns:mobile="clr-namespace:Redmine.Views.Controls.Mobile;assembly=Redmine">
+    <ContentPage.Content>
+        <controls:CircleLabelControl A="A"/>
+    </ContentPage.Content>
+</ContentPage>

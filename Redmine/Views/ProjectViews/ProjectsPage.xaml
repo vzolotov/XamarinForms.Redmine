@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<views:PageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Redmine.Views.ProjectsPage"
+             xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
+             xmlns:views="clr-namespace:Redmine.Views;assembly=Redmine"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:itemVm="clr-namespace:Redmine.ViewModels.ItemViewModels;assembly=Redmine.ViewModels"
+             xmlns:macos="clr-namespace:Xamarin.Forms.PlatformConfiguration.macOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:controls="clr-namespace:Redmine.Views.Controls;assembly=Redmine"
+             xmlns:converters="clr-namespace:Redmine.Views.Converters;assembly=Redmine"
+             xmlns:behaviors="clr-namespace:Redmine.Views.Behaviors;assembly=Redmine"
+             ios:Page.UseSafeArea="true"
+             macos:TabbedPage.TabsStyle="Icons"
+             Title="Projects"
+             x:Name="projectsPage"
+             BindingContext="{x:Static redmine:ViewModelResolver.ProjectsPageViewModel}"
+             IsBusy="{Binding IsBusy}"
+            >
+    <views:PageBase.Resources>
+        <ResourceDictionary>
+            <converters:ItemTappedEventArgsConverter x:Key="ItemTapped"></converters:ItemTappedEventArgsConverter>
+        </ResourceDictionary>
+    </views:PageBase.Resources>
+    <views:PageBase.ToolbarItems>
+        <ToolbarItem
+            Text="Add"
+            Order="Primary"
+            Priority="0"
+            Command="{Binding AddCommand}"
+            >
+        </ToolbarItem>
+    </views:PageBase.ToolbarItems>
+    <views:PageBase.VisualElementControl>
+        <ListView 
+            ItemsSource="{Binding Projects}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            HasUnevenRows="True"
+            CachingStrategy="RetainElement"
+            >
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior 
+                    Command="{Binding ViewCommand}"
+                    Converter="{StaticResource ItemTapped}"
+                    EventName="ItemTapped"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+               <DataTemplate x:DataType="itemVm:ProjectViewModel">
+                   <ViewCell StyleId="disclosure">
+                       <ViewCell.ContextActions>
+                           <MenuItem Command="{Binding EditCommand}"
+                                     Text="Edit" />
+                           <MenuItem Command="{Binding Source={x:Reference projectsPage}, Path=BindingContext.DeleteCommand}"
+                                     CommandParameter="{Binding}"
+                                     Text="Delete" IsDestructive="True" />
+                       </ViewCell.ContextActions>
+                       <Grid Margin="20, 5">
+                           <Grid.RowDefinitions>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                               <RowDefinition Height="Auto"></RowDefinition>
+                           </Grid.RowDefinitions>
+                           <Label
+                               Text="{Binding Name}" 
+                               FontSize="Large">
+                           </Label>
+                           <controls:HtmlLabel
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               Text="{Binding Description}"
+                               FontSize="Default"
+                               Grid.Row="1">
+                           </controls:HtmlLabel>
+                       </Grid>
+                   </ViewCell>
+               </DataTemplate>
+           </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal">
+            </StackLayout>
+        </ListView.Footer>
+       </ListView>
+    </views:PageBase.VisualElementControl>
+</views:PageBase>

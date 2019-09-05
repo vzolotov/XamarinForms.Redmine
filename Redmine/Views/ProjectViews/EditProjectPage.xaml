@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:redmine="clr-namespace:Redmine;assembly=Redmine"
+             x:Class="Redmine.Views.EditProjectPage"
+             BindingContext="{x:Static redmine:ViewModelResolver.EditProjectViewModel}">
+    <ContentPage.Content>
+        <Entry Text="{Binding}" />
+    </ContentPage.Content>
+</ContentPage>

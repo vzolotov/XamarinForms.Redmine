@@ -1,4 +1,0 @@
-[submodule "modules/redminesdk"]
-	path = modules/redminesdk
-	url = https://github.com/konne/redmine-net-api.git
-	branch=dev

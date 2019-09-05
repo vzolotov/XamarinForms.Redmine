@@ -2,20 +2,17 @@
 using Redmine.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DryIoc;
+using Redmine.Services.Interfaces;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Redmine
 {
-    public partial class App : Application
+    public partial class App : Application, IMainView
     {
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
-            var menu = new Menu();
-            menu.Text = "1111";
-            SetMenu(Application.Current, menu);
         }
 
         protected override void OnStart()
@@ -31,6 +28,16 @@ namespace Redmine
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public void GoToLogin()
+        {
+           MainPage = new NavigationPage(new LoginPage());
+        }
+
+        public void GoToLogic()
+        {
+           MainPage = new MainPage();
         }
     }
 }

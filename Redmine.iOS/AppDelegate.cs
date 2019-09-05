@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 using Foundation;
 using UIKit;
-
 namespace Redmine.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -23,8 +19,13 @@ namespace Redmine.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Calabash.Start();
+
+            
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            var resolver = new IOsResolver();
+            resolver.PlatformContainerInit();
+            LoadApplication(resolver.GetApp());
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             return base.FinishedLaunching(app, options);
         }

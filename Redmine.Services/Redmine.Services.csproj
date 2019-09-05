@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redmine.Models\Redmine.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="redmine-net-api" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="NetworkServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NetworkServices\RedmineServices.cs" />
+  </ItemGroup>
+</Project>
